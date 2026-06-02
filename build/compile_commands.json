@@ -1,0 +1,164 @@
+[
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_order_pool.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_order_pool.cpp",
+  "output": "CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_fixed_clob.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_fixed_clob.cpp",
+  "output": "CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -o CMakeFiles/bench_fixed_clob.dir/bench/bench_fixed_clob.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_fixed_clob.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_fixed_clob.cpp",
+  "output": "CMakeFiles/bench_fixed_clob.dir/bench/bench_fixed_clob.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_order_index.dir/tests/test_order_index.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_order_index.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_order_index.cpp",
+  "output": "CMakeFiles/test_order_index.dir/tests/test_order_index.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_matching.dir/tests/test_matching.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_matching.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_matching.cpp",
+  "output": "CMakeFiles/test_matching.dir/tests/test_matching.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -o CMakeFiles/bench_matching.dir/bench/bench_matching.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_matching.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_matching.cpp",
+  "output": "CMakeFiles/bench_matching.dir/bench/bench_matching.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -o CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_matching_hot.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_matching_hot.cpp",
+  "output": "CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -DBENCHMARK_VERSION=\\\"v1.9.5-57-gac68e7d7\\\" -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/benchmark.cc.o -c /home/marvinthang/projects/benchmark/src/benchmark.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/benchmark.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/benchmark.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/benchmark_api_internal.cc.o -c /home/marvinthang/projects/benchmark/src/benchmark_api_internal.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/benchmark_api_internal.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/benchmark_api_internal.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/benchmark_name.cc.o -c /home/marvinthang/projects/benchmark/src/benchmark_name.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/benchmark_name.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/benchmark_name.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/benchmark_register.cc.o -c /home/marvinthang/projects/benchmark/src/benchmark_register.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/benchmark_register.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/benchmark_register.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/benchmark_runner.cc.o -c /home/marvinthang/projects/benchmark/src/benchmark_runner.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/benchmark_runner.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/benchmark_runner.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/check.cc.o -c /home/marvinthang/projects/benchmark/src/check.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/check.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/check.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/colorprint.cc.o -c /home/marvinthang/projects/benchmark/src/colorprint.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/colorprint.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/colorprint.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/commandlineflags.cc.o -c /home/marvinthang/projects/benchmark/src/commandlineflags.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/commandlineflags.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/commandlineflags.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/complexity.cc.o -c /home/marvinthang/projects/benchmark/src/complexity.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/complexity.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/complexity.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/console_reporter.cc.o -c /home/marvinthang/projects/benchmark/src/console_reporter.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/console_reporter.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/console_reporter.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/counter.cc.o -c /home/marvinthang/projects/benchmark/src/counter.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/counter.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/counter.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/csv_reporter.cc.o -c /home/marvinthang/projects/benchmark/src/csv_reporter.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/csv_reporter.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/csv_reporter.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/json_reporter.cc.o -c /home/marvinthang/projects/benchmark/src/json_reporter.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/json_reporter.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/json_reporter.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/perf_counters.cc.o -c /home/marvinthang/projects/benchmark/src/perf_counters.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/perf_counters.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/perf_counters.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/reporter.cc.o -c /home/marvinthang/projects/benchmark/src/reporter.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/reporter.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/reporter.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/statistics.cc.o -c /home/marvinthang/projects/benchmark/src/statistics.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/statistics.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/statistics.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/string_util.cc.o -c /home/marvinthang/projects/benchmark/src/string_util.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/string_util.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/string_util.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/sysinfo.cc.o -c /home/marvinthang/projects/benchmark/src/sysinfo.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/sysinfo.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/sysinfo.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/timers.cc.o -c /home/marvinthang/projects/benchmark/src/timers.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/timers.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark.dir/timers.cc.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark_main.dir/benchmark_main.cc.o -c /home/marvinthang/projects/benchmark/src/benchmark_main.cc",
+  "file": "/home/marvinthang/projects/benchmark/src/benchmark_main.cc",
+  "output": "benchmark_build/src/CMakeFiles/benchmark_main.dir/benchmark_main.cc.o"
+}
+]

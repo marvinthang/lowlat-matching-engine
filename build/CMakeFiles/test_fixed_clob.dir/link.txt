@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_fixed_clob.dir/link.d CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o -o test_fixed_clob  benchmark_build/src/libbenchmark.a -lrt

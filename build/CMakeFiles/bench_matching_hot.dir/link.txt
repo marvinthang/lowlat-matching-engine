@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/bench_matching_hot.dir/link.d CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o -o bench_matching_hot  benchmark_build/src/libbenchmark.a -lrt
