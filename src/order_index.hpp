@@ -9,22 +9,40 @@
 #include <algorithm>
 #include <cstdint>
 
-template<std::size_t Capacity>
+struct FastOrderIdHash {
+    std::size_t operator()(OrderId x) const {
+        x ^= x >> 32;
+        return static_cast<std::size_t>(x);
+    }
+};
+
+struct RobustOrderIdHash {
+    std::size_t operator()(OrderId x) const {
+        x ^= x >> 33;
+        x *= 0xff51afd7ed558ccdULL;
+        x ^= x >> 33;
+        x *= 0xc4ceb9fe1a85ec53ULL;
+        x ^= x >> 33;
+        return static_cast<std::size_t>(x);
+    }
+};
+
+template <std::size_t Capacity, class Hash = FastOrderIdHash>
 class FixedOrderIndex {
-public:
+   public:
     FixedOrderIndex()
         : keys_(std::make_unique_for_overwrite<OrderId[]>(Capacity)),
           values_(std::make_unique_for_overwrite<OrderIndex[]>(Capacity)),
           states_(std::make_unique_for_overwrite<State[]>(Capacity)) {
-            static_assert(Capacity > 1, "Capacity must be greater than 1");
-            static_assert(std::has_single_bit(Capacity), "Capacity must be a power of 2");
-            clear();
+        static_assert(Capacity > 1, "Capacity must be greater than 1");
+        static_assert(std::has_single_bit(Capacity), "Capacity must be a power of 2");
+        clear();
     }
 
     bool insert(OrderId order_id, OrderIndex idx) {
         assert(order_id != 0);
 
-        std::size_t pos = hash(order_id) & mask();
+        std::size_t pos = Hash{}(order_id)&mask();
         std::size_t first_deleted = Capacity;
 
         for (std::size_t step = 0; step < Capacity; ++step, pos = (pos + 1) & mask()) {
@@ -57,7 +75,7 @@ public:
     std::optional<OrderIndex> find(OrderId order_id) const {
         assert(order_id != 0);
 
-        std::size_t pos = hash(order_id) & mask();
+        std::size_t pos = Hash{}(order_id)&mask();
 
         for (std::size_t step = 0; step < Capacity; ++step, pos = (pos + 1) & mask()) {
             if (states_[pos] == State::Empty) {
@@ -75,7 +93,7 @@ public:
     bool erase(OrderId order_id) {
         assert(order_id != 0);
 
-        std::size_t pos = hash(order_id) & mask();
+        std::size_t pos = Hash{}(order_id)&mask();
 
         for (std::size_t step = 0; step < Capacity; ++step, pos = (pos + 1) & mask()) {
             if (states_[pos] == State::Empty) {
@@ -117,7 +135,7 @@ public:
         return size_ == Capacity;
     }
 
-private:
+   private:
     enum class State : std::uint8_t {
         Empty,
         Occupied,
@@ -126,11 +144,6 @@ private:
 
     static constexpr std::size_t mask() {
         return Capacity - 1;
-    }
-
-    static std::size_t hash(OrderId x) {
-        x ^= x >> 32;
-        return static_cast<std::size_t>(x);
     }
 
     std::unique_ptr<OrderId[]> keys_;

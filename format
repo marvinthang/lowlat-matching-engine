@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -eu
+
+find src bench tests \
+    \( -name "*.cpp" -o -name "*.hpp" -o -name "*.h" -o -name "*.cc" -o -name "*.cxx" \) \
+    -print0 |
+    xargs -0 clang-format -i

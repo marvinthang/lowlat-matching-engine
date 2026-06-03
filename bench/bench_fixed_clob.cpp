@@ -3,7 +3,7 @@
 
 #include <benchmark/benchmark.h>
 
-static void BM_FixedClob_AddOnly(benchmark::State& state) {
+static void BM_FixedClob_AddOnly(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     const auto orders = make_orders(n);
 
@@ -20,7 +20,7 @@ static void BM_FixedClob_AddOnly(benchmark::State& state) {
     state.SetItemsProcessed(state.iterations() * n);
 }
 
-static void BM_FixedClob_AddThenCancel(benchmark::State& state) {
+static void BM_FixedClob_AddThenCancel(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     const auto orders = make_orders(n);
 
@@ -28,7 +28,8 @@ static void BM_FixedClob_AddThenCancel(benchmark::State& state) {
         FixedClob<1 << 20> book(8000, 12000);
 
         for (const auto &order : orders) {
-            benchmark::DoNotOptimize(book.add_order(order.order_id, order.side, order.price, order.qty));
+            benchmark::DoNotOptimize(
+                book.add_order(order.order_id, order.side, order.price, order.qty));
         }
 
         for (const auto &order : orders) {

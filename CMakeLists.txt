@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.23)
 
 project(lowlat_matching_engine LANGUAGES CXX)
 
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -40,3 +45,19 @@ target_compile_options(bench_matching PRIVATE -Wall -Wextra)
 add_executable(bench_matching_hot bench/bench_matching_hot.cpp)
 target_link_libraries(bench_matching_hot PRIVATE lowlat benchmark::benchmark)
 target_compile_options(bench_matching_hot PRIVATE -Wall -Wextra)
+
+add_executable(bench_order_index bench/bench_order_index.cpp)
+target_link_libraries(bench_order_index PRIVATE lowlat benchmark::benchmark)
+target_compile_options(bench_order_index PRIVATE -Wall -Wextra)
+
+add_executable(profile_full_match tools/profile_full_match.cpp)
+target_link_libraries(profile_full_match PRIVATE lowlat)
+target_compile_options(profile_full_match PRIVATE -Wall -Wextra)
+
+add_executable(profile_full_match_no_exec tools/profile_full_match_no_exec.cpp)
+target_link_libraries(profile_full_match_no_exec PRIVATE lowlat)
+target_compile_options(profile_full_match_no_exec PRIVATE -Wall -Wextra)
+
+add_executable(profile_full_match_raw_exec tools/profile_full_match_raw_exec.cpp)
+target_link_libraries(profile_full_match_raw_exec PRIVATE lowlat)
+target_compile_options(profile_full_match_raw_exec PRIVATE -Wall -Wextra)

@@ -5,9 +5,9 @@
 #include <optional>
 #include <cassert>
 
-template<std::size_t MaxOrders>
+template <std::size_t MaxOrders>
 class OrderPool {
-public:
+   public:
     OrderPool()
         : orders_(std::make_unique<Order[]>(MaxOrders)),
           free_stack_(std::make_unique<OrderIndex[]>(MaxOrders)) {
@@ -29,16 +29,15 @@ public:
         assert(idx < MaxOrders);
         assert(top_ < MaxOrders);
 
-        orders_[idx] = Order{};
         free_stack_[top_++] = idx;
     }
 
-    Order& get(OrderIndex idx) {
+    Order &get(OrderIndex idx) {
         assert(idx < MaxOrders);
         return orders_[idx];
     }
 
-    const Order& get(OrderIndex idx) const {
+    const Order &get(OrderIndex idx) const {
         assert(idx < MaxOrders);
         return orders_[idx];
     }
@@ -63,7 +62,7 @@ public:
         return top_ == MaxOrders;
     }
 
-private:
+   private:
     std::unique_ptr<Order[]> orders_;
     std::unique_ptr<OrderIndex[]> free_stack_;
     std::size_t top_{MaxOrders};

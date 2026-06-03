@@ -253,6 +253,58 @@ bench_matching_hot/fast:
 .PHONY : bench_matching_hot/fast
 
 #=============================================================================
+# Target rules for targets named bench_order_index
+
+# Build rule for target.
+bench_order_index: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_order_index
+.PHONY : bench_order_index
+
+# fast build rule for target.
+bench_order_index/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_order_index.dir/build.make CMakeFiles/bench_order_index.dir/build
+.PHONY : bench_order_index/fast
+
+#=============================================================================
+# Target rules for targets named profile_full_match
+
+# Build rule for target.
+profile_full_match: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 profile_full_match
+.PHONY : profile_full_match
+
+# fast build rule for target.
+profile_full_match/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match.dir/build.make CMakeFiles/profile_full_match.dir/build
+.PHONY : profile_full_match/fast
+
+#=============================================================================
+# Target rules for targets named profile_full_match_no_exec
+
+# Build rule for target.
+profile_full_match_no_exec: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 profile_full_match_no_exec
+.PHONY : profile_full_match_no_exec
+
+# fast build rule for target.
+profile_full_match_no_exec/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_no_exec.dir/build.make CMakeFiles/profile_full_match_no_exec.dir/build
+.PHONY : profile_full_match_no_exec/fast
+
+#=============================================================================
+# Target rules for targets named profile_full_match_raw_exec
+
+# Build rule for target.
+profile_full_match_raw_exec: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 profile_full_match_raw_exec
+.PHONY : profile_full_match_raw_exec
+
+# fast build rule for target.
+profile_full_match_raw_exec/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_raw_exec.dir/build.make CMakeFiles/profile_full_match_raw_exec.dir/build
+.PHONY : profile_full_match_raw_exec/fast
+
+#=============================================================================
 # Target rules for targets named benchmark
 
 # Build rule for target.
@@ -350,6 +402,30 @@ bench/bench_matching_hot.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_matching_hot.dir/build.make CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.s
 .PHONY : bench/bench_matching_hot.cpp.s
 
+bench/bench_order_index.o: bench/bench_order_index.cpp.o
+.PHONY : bench/bench_order_index.o
+
+# target to build an object file
+bench/bench_order_index.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_order_index.dir/build.make CMakeFiles/bench_order_index.dir/bench/bench_order_index.cpp.o
+.PHONY : bench/bench_order_index.cpp.o
+
+bench/bench_order_index.i: bench/bench_order_index.cpp.i
+.PHONY : bench/bench_order_index.i
+
+# target to preprocess a source file
+bench/bench_order_index.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_order_index.dir/build.make CMakeFiles/bench_order_index.dir/bench/bench_order_index.cpp.i
+.PHONY : bench/bench_order_index.cpp.i
+
+bench/bench_order_index.s: bench/bench_order_index.cpp.s
+.PHONY : bench/bench_order_index.s
+
+# target to generate assembly for a file
+bench/bench_order_index.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_order_index.dir/build.make CMakeFiles/bench_order_index.dir/bench/bench_order_index.cpp.s
+.PHONY : bench/bench_order_index.cpp.s
+
 tests/test_fixed_clob.o: tests/test_fixed_clob.cpp.o
 .PHONY : tests/test_fixed_clob.o
 
@@ -446,6 +522,78 @@ tests/test_order_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_order_pool.dir/build.make CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.s
 .PHONY : tests/test_order_pool.cpp.s
 
+tools/profile_full_match.o: tools/profile_full_match.cpp.o
+.PHONY : tools/profile_full_match.o
+
+# target to build an object file
+tools/profile_full_match.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match.dir/build.make CMakeFiles/profile_full_match.dir/tools/profile_full_match.cpp.o
+.PHONY : tools/profile_full_match.cpp.o
+
+tools/profile_full_match.i: tools/profile_full_match.cpp.i
+.PHONY : tools/profile_full_match.i
+
+# target to preprocess a source file
+tools/profile_full_match.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match.dir/build.make CMakeFiles/profile_full_match.dir/tools/profile_full_match.cpp.i
+.PHONY : tools/profile_full_match.cpp.i
+
+tools/profile_full_match.s: tools/profile_full_match.cpp.s
+.PHONY : tools/profile_full_match.s
+
+# target to generate assembly for a file
+tools/profile_full_match.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match.dir/build.make CMakeFiles/profile_full_match.dir/tools/profile_full_match.cpp.s
+.PHONY : tools/profile_full_match.cpp.s
+
+tools/profile_full_match_no_exec.o: tools/profile_full_match_no_exec.cpp.o
+.PHONY : tools/profile_full_match_no_exec.o
+
+# target to build an object file
+tools/profile_full_match_no_exec.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_no_exec.dir/build.make CMakeFiles/profile_full_match_no_exec.dir/tools/profile_full_match_no_exec.cpp.o
+.PHONY : tools/profile_full_match_no_exec.cpp.o
+
+tools/profile_full_match_no_exec.i: tools/profile_full_match_no_exec.cpp.i
+.PHONY : tools/profile_full_match_no_exec.i
+
+# target to preprocess a source file
+tools/profile_full_match_no_exec.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_no_exec.dir/build.make CMakeFiles/profile_full_match_no_exec.dir/tools/profile_full_match_no_exec.cpp.i
+.PHONY : tools/profile_full_match_no_exec.cpp.i
+
+tools/profile_full_match_no_exec.s: tools/profile_full_match_no_exec.cpp.s
+.PHONY : tools/profile_full_match_no_exec.s
+
+# target to generate assembly for a file
+tools/profile_full_match_no_exec.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_no_exec.dir/build.make CMakeFiles/profile_full_match_no_exec.dir/tools/profile_full_match_no_exec.cpp.s
+.PHONY : tools/profile_full_match_no_exec.cpp.s
+
+tools/profile_full_match_raw_exec.o: tools/profile_full_match_raw_exec.cpp.o
+.PHONY : tools/profile_full_match_raw_exec.o
+
+# target to build an object file
+tools/profile_full_match_raw_exec.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_raw_exec.dir/build.make CMakeFiles/profile_full_match_raw_exec.dir/tools/profile_full_match_raw_exec.cpp.o
+.PHONY : tools/profile_full_match_raw_exec.cpp.o
+
+tools/profile_full_match_raw_exec.i: tools/profile_full_match_raw_exec.cpp.i
+.PHONY : tools/profile_full_match_raw_exec.i
+
+# target to preprocess a source file
+tools/profile_full_match_raw_exec.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_raw_exec.dir/build.make CMakeFiles/profile_full_match_raw_exec.dir/tools/profile_full_match_raw_exec.cpp.i
+.PHONY : tools/profile_full_match_raw_exec.cpp.i
+
+tools/profile_full_match_raw_exec.s: tools/profile_full_match_raw_exec.cpp.s
+.PHONY : tools/profile_full_match_raw_exec.s
+
+# target to generate assembly for a file
+tools/profile_full_match_raw_exec.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/profile_full_match_raw_exec.dir/build.make CMakeFiles/profile_full_match_raw_exec.dir/tools/profile_full_match_raw_exec.cpp.s
+.PHONY : tools/profile_full_match_raw_exec.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -461,8 +609,12 @@ help:
 	@echo "... bench_fixed_clob"
 	@echo "... bench_matching"
 	@echo "... bench_matching_hot"
+	@echo "... bench_order_index"
 	@echo "... benchmark"
 	@echo "... benchmark_main"
+	@echo "... profile_full_match"
+	@echo "... profile_full_match_no_exec"
+	@echo "... profile_full_match_raw_exec"
 	@echo "... test_fixed_clob"
 	@echo "... test_matching"
 	@echo "... test_order_index"
@@ -476,6 +628,9 @@ help:
 	@echo "... bench/bench_matching_hot.o"
 	@echo "... bench/bench_matching_hot.i"
 	@echo "... bench/bench_matching_hot.s"
+	@echo "... bench/bench_order_index.o"
+	@echo "... bench/bench_order_index.i"
+	@echo "... bench/bench_order_index.s"
 	@echo "... tests/test_fixed_clob.o"
 	@echo "... tests/test_fixed_clob.i"
 	@echo "... tests/test_fixed_clob.s"
@@ -488,6 +643,15 @@ help:
 	@echo "... tests/test_order_pool.o"
 	@echo "... tests/test_order_pool.i"
 	@echo "... tests/test_order_pool.s"
+	@echo "... tools/profile_full_match.o"
+	@echo "... tools/profile_full_match.i"
+	@echo "... tools/profile_full_match.s"
+	@echo "... tools/profile_full_match_no_exec.o"
+	@echo "... tools/profile_full_match_no_exec.i"
+	@echo "... tools/profile_full_match_no_exec.s"
+	@echo "... tools/profile_full_match_raw_exec.o"
+	@echo "... tools/profile_full_match_raw_exec.i"
+	@echo "... tools/profile_full_match_raw_exec.s"
 .PHONY : help
 
 

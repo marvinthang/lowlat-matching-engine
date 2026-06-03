@@ -4,16 +4,15 @@
 #include "order_pool.hpp"
 #include "price_level.hpp"
 #include "order_index.hpp"
-#include "execution.hpp"
 
 #include <vector>
 #include <optional>
 #include <cassert>
 #include <utility>
 
-template<std::size_t MaxOrders>
+template <std::size_t MaxOrders, class OrderIdHash = FastOrderIdHash>
 class FixedClob {
-public:
+   public:
     using Level = std::pair<Price, Quantity>;
 
     FixedClob(Price min_price, Price max_price)
@@ -22,7 +21,9 @@ public:
           bid_levels_(range_size()),
           ask_levels_(range_size()) {}
 
-    bool submit_limit_order(OrderId order_id, Side side, Price price, Quantity qty, std::vector<Execution> &executions) {
+    template <class ExecutionSink>
+    bool submit_limit_order(OrderId order_id, Side side, Price price, Quantity qty,
+                            ExecutionSink &executions) {
         if (qty == 0 || !valid_price(price)) {
             return false;
         }
@@ -154,7 +155,7 @@ public:
         return pool_.get(lvl.tail_idx).order_id;
     }
 
-private:
+   private:
     std::size_t range_size() const {
         assert(min_price_ <= max_price_);
         return static_cast<std::size_t>(max_price_ - min_price_ + 1);
@@ -169,15 +170,15 @@ private:
         return static_cast<std::size_t>(price - min_price_);
     }
 
-    PriceLevel& level(Side side, Price price) {
+    PriceLevel &level(Side side, Price price) {
         return (side == Side::Buy) ? bid_levels_[index(price)] : ask_levels_[index(price)];
     }
 
-    const PriceLevel& level(Side side, Price price) const {
+    const PriceLevel &level(Side side, Price price) const {
         return (side == Side::Buy) ? bid_levels_[index(price)] : ask_levels_[index(price)];
     }
 
-    PriceLevel& best_opposite_level(Side incoming_side) {
+    PriceLevel &best_opposite_level(Side incoming_side) {
         if (incoming_side == Side::Buy) {
             assert(best_ask_.has_value());
             return level(Side::Sell, *best_ask_);
@@ -186,27 +187,32 @@ private:
         return level(Side::Buy, *best_bid_);
     }
 
-    bool crosses(Side incoming_side, Price incoming_price)  const {
+    bool crosses(Side incoming_side, Price incoming_price) const {
         if (incoming_side == Side::Buy) {
             return best_ask_.has_value() && *best_ask_ <= incoming_price;
         }
         return best_bid_.has_value() && *best_bid_ >= incoming_price;
     }
 
-    void match_order(OrderId incoming_order_id, Side incoming_side, Price incoming_price, Quantity &incoming_qty, std::vector<Execution> &executions) {
+    template <class ExecutionSink>
+    void match_order(OrderId incoming_order_id, Side incoming_side, Price incoming_price,
+                     Quantity &incoming_qty, ExecutionSink &executions) {
         while (incoming_qty > 0 && crosses(incoming_side, incoming_price)) {
             auto &lvl = best_opposite_level(incoming_side);
             match_at_level(lvl, incoming_order_id, incoming_qty, executions);
         }
     }
 
-    void match_at_level(PriceLevel &lvl, OrderId incoming_order_id, Quantity &incoming_qty, std::vector<Execution> &executions) {
+    template <class ExecutionSink>
+    void match_at_level(PriceLevel &lvl, OrderId incoming_order_id, Quantity &incoming_qty,
+                        ExecutionSink &executions) {
         while (incoming_qty > 0 && lvl.order_count > 0) {
             OrderIndex resting_order_idx = lvl.head_idx;
             auto &resting_order = pool_.get(resting_order_idx);
 
             if (incoming_qty < resting_order.qty) {
-                executions.emplace_back(incoming_order_id, resting_order.order_id, resting_order.price, incoming_qty);
+                executions.emplace_back(incoming_order_id, resting_order.order_id,
+                                        resting_order.price, incoming_qty);
 
                 reduce_order_quantity(resting_order_idx, incoming_qty, lvl);
                 incoming_qty = 0;
@@ -214,7 +220,8 @@ private:
                 break;
             }
 
-            executions.emplace_back(incoming_order_id, resting_order.order_id, resting_order.price, resting_order.qty);
+            executions.emplace_back(incoming_order_id, resting_order.order_id, resting_order.price,
+                                    resting_order.qty);
 
             incoming_qty -= resting_order.qty;
 
@@ -246,7 +253,6 @@ private:
         if (lvl.empty()) {
             refresh_best_after_empty_level(side, price);
         }
-
     }
 
     void append_to_level(PriceLevel &lvl, OrderIndex idx) {
@@ -309,7 +315,8 @@ private:
 
     void refresh_best_after_empty_level(Side side, Price price) {
         if (side == Side::Buy) {
-            if (!best_bid_.has_value() || price != *best_bid_) return;
+            if (!best_bid_.has_value() || price != *best_bid_)
+                return;
 
             while (price > min_price_) {
                 --price;
@@ -322,7 +329,8 @@ private:
 
             best_bid_.reset();
         } else {
-            if (!best_ask_.has_value() || price != *best_ask_) return;
+            if (!best_ask_.has_value() || price != *best_ask_)
+                return;
 
             while (price < max_price_) {
                 ++price;
@@ -344,7 +352,7 @@ private:
     std::vector<PriceLevel> bid_levels_;
     std::vector<PriceLevel> ask_levels_;
 
-    FixedOrderIndex<2 * MaxOrders> order_lookup_;
+    FixedOrderIndex<2 * MaxOrders, OrderIdHash> order_lookup_;
 
     std::optional<Price> best_bid_;
     std::optional<Price> best_ask_;

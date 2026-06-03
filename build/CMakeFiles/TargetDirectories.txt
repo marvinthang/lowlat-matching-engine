@@ -5,6 +5,10 @@
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/test_matching.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/bench_matching.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/bench_matching_hot.dir
+/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/bench_order_index.dir
+/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/profile_full_match.dir
+/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/profile_full_match_no_exec.dir
+/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/profile_full_match_raw_exec.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/edit_cache.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/rebuild_cache.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/list_install_components.dir

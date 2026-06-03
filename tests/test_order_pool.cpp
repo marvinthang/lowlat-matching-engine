@@ -24,13 +24,13 @@ void test_allocate_one() {
     assert(!pool.empty());
     assert(!pool.full());
 
-    auto& order = pool.get(*idx);
+    auto &order = pool.get(*idx);
     order.order_id = 123;
     order.price = 10000;
     order.qty = 50;
     order.side = Side::Buy;
 
-    const auto& read = pool.get(*idx);
+    const auto &read = pool.get(*idx);
     assert(read.order_id == 123);
     assert(read.price == 10000);
     assert(read.qty == 50);
@@ -64,7 +64,14 @@ void test_release_and_reuse() {
     auto idx = pool.allocate();
     assert(idx.has_value());
 
-    pool.get(*idx).order_id = 999;
+    auto &written = pool.get(*idx);
+    written.order_id = 999;
+    written.price = 10000;
+    written.qty = 50;
+    written.side = Side::Buy;
+    written.next_idx = 1;
+    written.prev_idx = 2;
+
     pool.release(*idx);
 
     assert(pool.available() == 4);
@@ -75,12 +82,13 @@ void test_release_and_reuse() {
     assert(again.has_value());
     assert(*again == *idx);
 
-    const auto& order = pool.get(*again);
-    assert(order.order_id == 0);
-    assert(order.price == 0);
-    assert(order.qty == 0);
-    assert(order.next_idx == null_order_index);
-    assert(order.prev_idx == null_order_index);
+    const auto &order = pool.get(*again);
+    assert(order.order_id == 999);
+    assert(order.price == 10000);
+    assert(order.qty == 50);
+    assert(order.side == Side::Buy);
+    assert(order.next_idx == 1);
+    assert(order.prev_idx == 2);
 }
 
 void test_release_middle_reuse_lifo() {
