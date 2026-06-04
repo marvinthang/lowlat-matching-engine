@@ -60,7 +60,7 @@ static std::vector<OrderId> make_ids(std::size_t n) {
 }
 
 template <class Index, IdPattern Pattern>
-static void BM_Index_Insert(benchmark::State &state) {
+static void run_index_insert(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     const auto ids = make_ids<Pattern>(n);
 
@@ -79,7 +79,7 @@ static void BM_Index_Insert(benchmark::State &state) {
 }
 
 template <class Index, IdPattern Pattern>
-static void BM_Index_Find(benchmark::State &state) {
+static void run_index_find(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     const auto ids = make_ids<Pattern>(n);
 
@@ -105,7 +105,7 @@ static void BM_Index_Find(benchmark::State &state) {
 }
 
 template <class Index, IdPattern Pattern>
-static void BM_Index_Erase(benchmark::State &state) {
+static void run_index_erase(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     const auto ids = make_ids<Pattern>(n);
 
@@ -132,22 +132,22 @@ static void BM_Index_Erase(benchmark::State &state) {
 
 #define DEFINE_INDEX_BENCHMARKS(prefix, index_type)                        \
     static void BM_##prefix##_Sequential_Insert(benchmark::State &state) { \
-        BM_Index_Insert<index_type, IdPattern::Sequential>(state);         \
+        run_index_insert<index_type, IdPattern::Sequential>(state);        \
     }                                                                      \
     static void BM_##prefix##_Sequential_Find(benchmark::State &state) {   \
-        BM_Index_Find<index_type, IdPattern::Sequential>(state);           \
+        run_index_find<index_type, IdPattern::Sequential>(state);          \
     }                                                                      \
     static void BM_##prefix##_Sequential_Erase(benchmark::State &state) {  \
-        BM_Index_Erase<index_type, IdPattern::Sequential>(state);          \
+        run_index_erase<index_type, IdPattern::Sequential>(state);         \
     }                                                                      \
     static void BM_##prefix##_BadLowBits_Insert(benchmark::State &state) { \
-        BM_Index_Insert<index_type, IdPattern::BadLowBits>(state);         \
+        run_index_insert<index_type, IdPattern::BadLowBits>(state);        \
     }                                                                      \
     static void BM_##prefix##_BadLowBits_Find(benchmark::State &state) {   \
-        BM_Index_Find<index_type, IdPattern::BadLowBits>(state);           \
+        run_index_find<index_type, IdPattern::BadLowBits>(state);          \
     }                                                                      \
     static void BM_##prefix##_BadLowBits_Erase(benchmark::State &state) {  \
-        BM_Index_Erase<index_type, IdPattern::BadLowBits>(state);          \
+        run_index_erase<index_type, IdPattern::BadLowBits>(state);         \
     }
 
 DEFINE_INDEX_BENCHMARKS(FastIndex, FastIndex)

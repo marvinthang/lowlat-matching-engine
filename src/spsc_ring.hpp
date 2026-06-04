@@ -41,6 +41,25 @@ public:
         return true;
     }
 
+    std::size_t push_many(const T *in, std::size_t max_count) {
+        std::size_t head = head_.load(std::memory_order_relaxed);
+        std::size_t tail = tail_.load(std::memory_order_acquire);
+
+        std::size_t used = head - tail;
+        std::size_t count = std::min(Capacity - used, max_count);
+
+        if (count == 0) {
+            return 0;
+        }
+
+        for (std::size_t i = 0; i < count; ++i) {
+            data_[(head + i) & mask()] = in[i];
+        }
+
+        head_.store(head + count, std::memory_order_release);
+        return count;
+    }
+
     std::size_t pop_many(T *out, std::size_t max_count) {
         std::size_t tail = tail_.load(std::memory_order_relaxed);
         std::size_t head = head_.load(std::memory_order_acquire);

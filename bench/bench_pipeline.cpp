@@ -2,6 +2,7 @@
 #include "fixed_clob.hpp"
 #include "workload.hpp"
 #include "spsc_ring.hpp"
+#include "thread_affinity.hpp"
 
 #include <benchmark/benchmark.h>
 
@@ -15,14 +16,13 @@
 constexpr std::size_t queue_capacity = 1 << 20;
 constexpr std::size_t batch_size = 32;
 
-template <class OrderIdHash>
-static void run_pipeline_add_only(benchmark::State &state) {
+static void BM_Pipeline_Fast_AddOnly_RawExec(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     auto commands = make_add_only_commands(n);
 
     for (auto _ : state) {
         SpscRing<OrderCommand, queue_capacity> queue;
-        FixedClob<queue_capacity, OrderIdHash> book(8000, 12000);
+        FixedClob<queue_capacity, FastOrderIdHash> book(8000, 12000);
 
         ExecutionBuffer executions;
         executions.reserve(n);
@@ -76,14 +76,13 @@ static void run_pipeline_add_only(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * commands.size());
 }
 
-template <class OrderIdHash>
-static void run_pipeline_full_match(benchmark::State &state) {
+static void BM_Pipeline_Fast_FullMatch_RawExec(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     auto commands = make_full_match_commands(n);
 
     for (auto _ : state) {
         SpscRing<OrderCommand, queue_capacity> queue;
-        FixedClob<queue_capacity, OrderIdHash> book(8000, 12000);
+        FixedClob<queue_capacity, FastOrderIdHash> book(8000, 12000);
 
         ExecutionBuffer executions;
         executions.reserve(n);
@@ -137,14 +136,13 @@ static void run_pipeline_full_match(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * commands.size());
 }
 
-template <class OrderIdHash>
-static void run_pipeline_full_match_index_queue(benchmark::State &state) {
+static void BM_Pipeline_Fast_FullMatch_IndexQueue_RawExec(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     auto commands = make_full_match_commands(n);
 
     for (auto _ : state) {
         SpscRing<std::uint32_t, queue_capacity> queue;
-        FixedClob<queue_capacity, OrderIdHash> book(8000, 12000);
+        FixedClob<queue_capacity, FastOrderIdHash> book(8000, 12000);
 
         ExecutionBuffer executions;
         executions.reserve(n);
@@ -200,8 +198,8 @@ static void run_pipeline_full_match_index_queue(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * commands.size());
 }
 
-template <class OrderIdHash, std::size_t BatchSize = batch_size>
-static void run_pipeline_full_match_batch_pop(benchmark::State &state) {
+template <std::size_t BatchSize = batch_size, class OrderIdHash = FastOrderIdHash>
+static void BM_Pipeline_FullMatch_BatchPop_RawExec(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     auto commands = make_full_match_commands(n);
 
@@ -365,14 +363,6 @@ static void BM_Pipeline_Uint64_QueueOnly(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * items.size());
 }
 
-static void BM_Pipeline_Fast_AddOnly_RawExec(benchmark::State &state) {
-    run_pipeline_add_only<FastOrderIdHash>(state);
-}
-
-static void BM_Pipeline_Fast_FullMatch_RawExec(benchmark::State &state) {
-    run_pipeline_full_match<FastOrderIdHash>(state);
-}
-
 static void BM_Pipeline_FullMatch_IndexQueueOnly(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     auto commands = make_full_match_commands(n);
@@ -419,13 +409,137 @@ static void BM_Pipeline_FullMatch_IndexQueueOnly(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * commands.size());
 }
 
-static void BM_Pipeline_Fast_FullMatch_IndexQueue_RawExec(benchmark::State &state) {
-    run_pipeline_full_match_index_queue<FastOrderIdHash>(state);
+template <std::size_t BatchSize = batch_size, class OrderIdHash = FastOrderIdHash>
+static void BM_Pipeline_FullMatch_BatchPushPop_RawExec(benchmark::State &state) {
+    const auto n = static_cast<std::size_t>(state.range(0));
+    auto commands = make_full_match_commands(n);
+
+    std::array<OrderCommand, BatchSize> consumer_batch;
+
+    for (auto _ : state) {
+        SpscRing<OrderCommand, queue_capacity> queue;
+        FixedClob<queue_capacity, OrderIdHash> book(8000, 12000);
+
+        ExecutionBuffer executions;
+        executions.reserve(n);
+
+        std::atomic<bool> start{false};
+
+        std::thread producer([&] {
+            while (!start.load(std::memory_order_acquire)) {
+            }
+
+            std::size_t i = 0;
+            while (i < commands.size()) {
+                std::size_t max_count = std::min(BatchSize, commands.size() - i);
+
+                std::size_t pushed = queue.push_many(commands.data() + i, max_count);
+                i += pushed;
+            }
+        });
+
+        std::thread consumer([&] {
+            while (!start.load(std::memory_order_acquire)) {
+            }
+
+            std::size_t processed = 0;
+
+            while (processed < commands.size()) {
+                std::size_t popped = queue.pop_many(consumer_batch.data(), BatchSize);
+
+                for (std::size_t i = 0; i < popped; ++i) {
+                    const auto &command = consumer_batch[i];
+
+                    if (command.type == CommandType::AddLimit) {
+                        benchmark::DoNotOptimize(book.submit_limit_order(
+                            command.order_id, command.side, command.price, command.qty, executions));
+                    } else if (command.type == CommandType::Cancel) {
+                        benchmark::DoNotOptimize(book.cancel_order(command.order_id));
+                    }
+                }
+
+                processed += popped;
+            }
+        });
+
+        start.store(true, std::memory_order_release);
+
+        producer.join();
+        consumer.join();
+
+        benchmark::DoNotOptimize(book.empty());
+        benchmark::DoNotOptimize(executions.size());
+    }
+
+    state.SetItemsProcessed(state.iterations() * commands.size());
 }
 
-template <std::size_t BatchSize = batch_size>
-static void BM_Pipeline_FullMatch_BatchPop_RawExec(benchmark::State &state) {
-    run_pipeline_full_match_batch_pop<FastOrderIdHash, BatchSize>(state);
+template <std::size_t BatchSize = batch_size, class OrderIdHash = FastOrderIdHash>
+static void BM_Pipeline_FullMatch_BatchPop_Pinned_RawExec(benchmark::State &state) {
+    const auto n = static_cast<std::size_t>(state.range(0));
+    auto commands = make_full_match_commands(n);
+
+    std::array<OrderCommand, BatchSize> command_batch;
+
+    for (auto _ : state) {
+        SpscRing<OrderCommand, queue_capacity> queue;
+        FixedClob<queue_capacity, OrderIdHash> book(8000, 12000);
+
+        ExecutionBuffer executions;
+        executions.reserve(n);
+
+        std::atomic<bool> start{false};
+
+        std::thread producer([&] {
+            benchmark::DoNotOptimize(pin_current_thread_to_cpu(4));
+
+            while (!start.load(std::memory_order_acquire)) {
+            }
+
+            std::size_t i = 0;
+            while (i < commands.size()) {
+                if (queue.push(commands[i])) {
+                    ++i;
+                }
+            }
+        });
+
+        std::thread consumer([&] {
+            benchmark::DoNotOptimize(pin_current_thread_to_cpu(6));
+
+            while (!start.load(std::memory_order_acquire)) {
+            }
+
+            std::size_t processed = 0;
+
+            while (processed < commands.size()) {
+                std::size_t batch_count = queue.pop_many(command_batch.data(), BatchSize);
+
+                for (std::size_t i = 0; i < batch_count; ++i) {
+                    const auto &command = command_batch[i];
+
+                    if (command.type == CommandType::AddLimit) {
+                        benchmark::DoNotOptimize(book.submit_limit_order(
+                            command.order_id, command.side, command.price, command.qty, executions));
+                    } else if (command.type == CommandType::Cancel) {
+                        benchmark::DoNotOptimize(book.cancel_order(command.order_id));
+                    }
+                }
+
+                processed += batch_count;
+            }
+        });
+
+        start.store(true, std::memory_order_release);
+
+        producer.join();
+        consumer.join();
+
+        benchmark::DoNotOptimize(book.empty());
+        benchmark::DoNotOptimize(executions.size());
+    }
+
+    state.SetItemsProcessed(state.iterations() * commands.size());
 }
 
 BENCHMARK(BM_Pipeline_Fast_AddOnly_RawExec)
@@ -455,9 +569,20 @@ BENCHMARK(BM_Pipeline_Fast_FullMatch_IndexQueue_RawExec)
     ->Range(1'000, 1'000'000)
     ->UseRealTime();
 
-BENCHMARK(BM_Pipeline_FullMatch_BatchPop_RawExec<32>)
+BENCHMARK(BM_Pipeline_FullMatch_BatchPop_RawExec)
     ->RangeMultiplier(10)
     ->Range(1'000, 1'000'000)
     ->UseRealTime();
+
+BENCHMARK(BM_Pipeline_FullMatch_BatchPop_Pinned_RawExec)
+    ->RangeMultiplier(10)
+    ->Range(1'000, 1'000'000)
+    ->UseRealTime();
+
+BENCHMARK(BM_Pipeline_FullMatch_BatchPushPop_RawExec)
+    ->RangeMultiplier(10)
+    ->Range(1'000, 1'000'000)
+    ->UseRealTime();
+
 
 BENCHMARK_MAIN();

@@ -25,7 +25,7 @@ CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o
  /home/marvinthang/projects/lowlat-matching-engine/src/order_pool.hpp
  /home/marvinthang/projects/lowlat-matching-engine/src/price_level.hpp
  /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring.hpp
- /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring_cached.hpp
+ /home/marvinthang/projects/lowlat-matching-engine/src/thread_affinity.hpp
  /home/marvinthang/projects/lowlat-matching-engine/src/types.hpp
  /home/marvinthang/projects/lowlat-matching-engine/src/workload.hpp
  /usr/include/alloca.h

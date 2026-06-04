@@ -24,7 +24,7 @@ CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o: /home/marvinthang/proj
   /home/marvinthang/projects/lowlat-matching-engine/src/order_pool.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/price_level.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring.hpp \
-  /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring_cached.hpp \
+  /home/marvinthang/projects/lowlat-matching-engine/src/thread_affinity.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/types.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/workload.hpp \
   /usr/include/alloca.h \
@@ -643,6 +643,8 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
+/home/marvinthang/projects/lowlat-matching-engine/src/order.hpp:
+
 /usr/include/c++/15/bits/ostream_insert.h:
 
 /usr/include/c++/15/bits/ranges_algo.h:
@@ -763,11 +765,11 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/c++/15/bits/char_traits.h:
 
-/home/marvinthang/projects/lowlat-matching-engine/src/order.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
+
+/home/marvinthang/projects/lowlat-matching-engine/src/thread_affinity.hpp:
 
 /usr/include/syscall.h:
 
@@ -798,8 +800,6 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/backward/binders.h:
 
 /usr/include/c++/15/utility:
-
-/usr/include/c++/15/istream:
 
 /home/marvinthang/projects/lowlat-matching-engine/src/order_command.hpp:
 
@@ -907,8 +907,6 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/features-time64.h:
 
-/home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring_cached.hpp:
-
 /usr/include/c++/15/bits/unique_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
@@ -958,6 +956,8 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/bits/vector.tcc:
 
 /usr/include/c++/15/iostream:
+
+/usr/include/c++/15/istream:
 
 /usr/include/linux/errno.h:
 

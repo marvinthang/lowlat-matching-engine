@@ -243,6 +243,7 @@ CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o: \
  /home/marvinthang/projects/lowlat-matching-engine/src/order_command.hpp \
  /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring.hpp \
  /usr/include/c++/15/atomic \
+ /home/marvinthang/projects/lowlat-matching-engine/src/thread_affinity.hpp \
  /home/marvinthang/projects/benchmark/include/benchmark/benchmark.h \
  /home/marvinthang/projects/benchmark/include/benchmark/benchmark_api.h \
  /usr/include/c++/15/functional /usr/include/c++/15/bits/std_function.h \
