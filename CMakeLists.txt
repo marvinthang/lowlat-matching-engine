@@ -61,3 +61,11 @@ target_compile_options(profile_full_match_no_exec PRIVATE -Wall -Wextra)
 add_executable(profile_full_match_raw_exec tools/profile_full_match_raw_exec.cpp)
 target_link_libraries(profile_full_match_raw_exec PRIVATE lowlat)
 target_compile_options(profile_full_match_raw_exec PRIVATE -Wall -Wextra)
+
+add_executable(test_spsc_ring tests/test_spsc_ring.cpp)
+target_link_libraries(test_spsc_ring PRIVATE lowlat benchmark::benchmark)
+target_compile_options(test_spsc_ring PRIVATE -Wall -Wextra -UNDEBUG)
+
+add_executable(bench_pipeline bench/bench_pipeline.cpp)
+target_link_libraries(bench_pipeline PRIVATE lowlat benchmark::benchmark)
+target_compile_options(bench_pipeline PRIVATE -Wall -Wextra -UNDEBUG)

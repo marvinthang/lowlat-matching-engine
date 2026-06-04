@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <chrono>
-#include <memory>
 
 int main() {
     constexpr std::size_t n = 1'000'000;

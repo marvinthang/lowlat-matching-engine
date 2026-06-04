@@ -1,7 +1,8 @@
 CMakeFiles/bench_fixed_clob.dir/bench/bench_fixed_clob.cpp.o: \
  /home/marvinthang/projects/lowlat-matching-engine/bench/bench_fixed_clob.cpp \
  /usr/include/stdc-predef.h \
- /home/marvinthang/projects/lowlat-matching-engine/src/market_order.hpp \
+ /home/marvinthang/projects/lowlat-matching-engine/src/workload.hpp \
+ /home/marvinthang/projects/lowlat-matching-engine/src/order_command.hpp \
  /home/marvinthang/projects/lowlat-matching-engine/src/types.hpp \
  /usr/include/c++/15/cstdint \
  /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \

@@ -1,17 +1,18 @@
-#include "market_order.hpp"
+#include "workload.hpp"
 #include "fixed_clob.hpp"
 
 #include <benchmark/benchmark.h>
 
 static void BM_FixedClob_AddOnly(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
-    const auto orders = make_orders(n);
+    const auto commands = make_add_only_commands(n);
 
     for (auto _ : state) {
         FixedClob<1 << 20> book(8000, 12000);
 
-        for (const auto [order_id, side, price, qty] : orders) {
-            benchmark::DoNotOptimize(book.add_order(order_id, side, price, qty));
+        for (const auto &command : commands) {
+            benchmark::DoNotOptimize(
+                book.add_order(command.order_id, command.side, command.price, command.qty));
         }
 
         benchmark::DoNotOptimize(book.empty());
@@ -22,18 +23,18 @@ static void BM_FixedClob_AddOnly(benchmark::State &state) {
 
 static void BM_FixedClob_AddThenCancel(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
-    const auto orders = make_orders(n);
+    const auto commands = make_add_only_commands(n);
 
     for (auto _ : state) {
         FixedClob<1 << 20> book(8000, 12000);
 
-        for (const auto &order : orders) {
+        for (const auto &command : commands) {
             benchmark::DoNotOptimize(
-                book.add_order(order.order_id, order.side, order.price, order.qty));
+                book.add_order(command.order_id, command.side, command.price, command.qty));
         }
 
-        for (const auto &order : orders) {
-            benchmark::DoNotOptimize(book.cancel_order(order.order_id));
+        for (const auto &command : commands) {
+            benchmark::DoNotOptimize(book.cancel_order(command.order_id));
         }
 
         benchmark::DoNotOptimize(book.empty());

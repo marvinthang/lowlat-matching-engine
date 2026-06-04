@@ -1,7 +1,8 @@
 CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o: \
  /home/marvinthang/projects/lowlat-matching-engine/bench/bench_matching_hot.cpp \
  /usr/include/stdc-predef.h \
- /home/marvinthang/projects/lowlat-matching-engine/src/market_order.hpp \
+ /home/marvinthang/projects/lowlat-matching-engine/src/workload.hpp \
+ /home/marvinthang/projects/lowlat-matching-engine/src/order_command.hpp \
  /home/marvinthang/projects/lowlat-matching-engine/src/types.hpp \
  /usr/include/c++/15/cstdint \
  /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \

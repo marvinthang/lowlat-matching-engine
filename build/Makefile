@@ -305,6 +305,32 @@ profile_full_match_raw_exec/fast:
 .PHONY : profile_full_match_raw_exec/fast
 
 #=============================================================================
+# Target rules for targets named test_spsc_ring
+
+# Build rule for target.
+test_spsc_ring: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_spsc_ring
+.PHONY : test_spsc_ring
+
+# fast build rule for target.
+test_spsc_ring/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_ring.dir/build.make CMakeFiles/test_spsc_ring.dir/build
+.PHONY : test_spsc_ring/fast
+
+#=============================================================================
+# Target rules for targets named bench_pipeline
+
+# Build rule for target.
+bench_pipeline: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_pipeline
+.PHONY : bench_pipeline
+
+# fast build rule for target.
+bench_pipeline/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_pipeline.dir/build.make CMakeFiles/bench_pipeline.dir/build
+.PHONY : bench_pipeline/fast
+
+#=============================================================================
 # Target rules for targets named benchmark
 
 # Build rule for target.
@@ -426,6 +452,30 @@ bench/bench_order_index.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_order_index.dir/build.make CMakeFiles/bench_order_index.dir/bench/bench_order_index.cpp.s
 .PHONY : bench/bench_order_index.cpp.s
 
+bench/bench_pipeline.o: bench/bench_pipeline.cpp.o
+.PHONY : bench/bench_pipeline.o
+
+# target to build an object file
+bench/bench_pipeline.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_pipeline.dir/build.make CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o
+.PHONY : bench/bench_pipeline.cpp.o
+
+bench/bench_pipeline.i: bench/bench_pipeline.cpp.i
+.PHONY : bench/bench_pipeline.i
+
+# target to preprocess a source file
+bench/bench_pipeline.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_pipeline.dir/build.make CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.i
+.PHONY : bench/bench_pipeline.cpp.i
+
+bench/bench_pipeline.s: bench/bench_pipeline.cpp.s
+.PHONY : bench/bench_pipeline.s
+
+# target to generate assembly for a file
+bench/bench_pipeline.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_pipeline.dir/build.make CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.s
+.PHONY : bench/bench_pipeline.cpp.s
+
 tests/test_fixed_clob.o: tests/test_fixed_clob.cpp.o
 .PHONY : tests/test_fixed_clob.o
 
@@ -522,6 +572,30 @@ tests/test_order_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_order_pool.dir/build.make CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.s
 .PHONY : tests/test_order_pool.cpp.s
 
+tests/test_spsc_ring.o: tests/test_spsc_ring.cpp.o
+.PHONY : tests/test_spsc_ring.o
+
+# target to build an object file
+tests/test_spsc_ring.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_ring.dir/build.make CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o
+.PHONY : tests/test_spsc_ring.cpp.o
+
+tests/test_spsc_ring.i: tests/test_spsc_ring.cpp.i
+.PHONY : tests/test_spsc_ring.i
+
+# target to preprocess a source file
+tests/test_spsc_ring.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_ring.dir/build.make CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.i
+.PHONY : tests/test_spsc_ring.cpp.i
+
+tests/test_spsc_ring.s: tests/test_spsc_ring.cpp.s
+.PHONY : tests/test_spsc_ring.s
+
+# target to generate assembly for a file
+tests/test_spsc_ring.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_ring.dir/build.make CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.s
+.PHONY : tests/test_spsc_ring.cpp.s
+
 tools/profile_full_match.o: tools/profile_full_match.cpp.o
 .PHONY : tools/profile_full_match.o
 
@@ -610,6 +684,7 @@ help:
 	@echo "... bench_matching"
 	@echo "... bench_matching_hot"
 	@echo "... bench_order_index"
+	@echo "... bench_pipeline"
 	@echo "... benchmark"
 	@echo "... benchmark_main"
 	@echo "... profile_full_match"
@@ -619,6 +694,7 @@ help:
 	@echo "... test_matching"
 	@echo "... test_order_index"
 	@echo "... test_order_pool"
+	@echo "... test_spsc_ring"
 	@echo "... bench/bench_fixed_clob.o"
 	@echo "... bench/bench_fixed_clob.i"
 	@echo "... bench/bench_fixed_clob.s"
@@ -631,6 +707,9 @@ help:
 	@echo "... bench/bench_order_index.o"
 	@echo "... bench/bench_order_index.i"
 	@echo "... bench/bench_order_index.s"
+	@echo "... bench/bench_pipeline.o"
+	@echo "... bench/bench_pipeline.i"
+	@echo "... bench/bench_pipeline.s"
 	@echo "... tests/test_fixed_clob.o"
 	@echo "... tests/test_fixed_clob.i"
 	@echo "... tests/test_fixed_clob.s"
@@ -643,6 +722,9 @@ help:
 	@echo "... tests/test_order_pool.o"
 	@echo "... tests/test_order_pool.i"
 	@echo "... tests/test_order_pool.s"
+	@echo "... tests/test_spsc_ring.o"
+	@echo "... tests/test_spsc_ring.i"
+	@echo "... tests/test_spsc_ring.s"
 	@echo "... tools/profile_full_match.o"
 	@echo "... tools/profile_full_match.i"
 	@echo "... tools/profile_full_match.s"

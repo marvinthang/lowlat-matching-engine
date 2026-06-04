@@ -130,37 +130,37 @@ static void BM_Index_Erase(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * n);
 }
 
-#define DEFINE_INDEX_BENCHMARKS(prefix, index_type)                       \
-    static void BM_##prefix##_InsertSequential(benchmark::State &state) { \
-        BM_Index_Insert<index_type, IdPattern::Sequential>(state);        \
-    }                                                                     \
-    static void BM_##prefix##_FindSequential(benchmark::State &state) {   \
-        BM_Index_Find<index_type, IdPattern::Sequential>(state);          \
-    }                                                                     \
-    static void BM_##prefix##_EraseSequential(benchmark::State &state) {  \
-        BM_Index_Erase<index_type, IdPattern::Sequential>(state);         \
-    }                                                                     \
-    static void BM_##prefix##_InsertBadLowBits(benchmark::State &state) { \
-        BM_Index_Insert<index_type, IdPattern::BadLowBits>(state);        \
-    }                                                                     \
-    static void BM_##prefix##_FindBadLowBits(benchmark::State &state) {   \
-        BM_Index_Find<index_type, IdPattern::BadLowBits>(state);          \
-    }                                                                     \
-    static void BM_##prefix##_EraseBadLowBits(benchmark::State &state) {  \
-        BM_Index_Erase<index_type, IdPattern::BadLowBits>(state);         \
+#define DEFINE_INDEX_BENCHMARKS(prefix, index_type)                        \
+    static void BM_##prefix##_Sequential_Insert(benchmark::State &state) { \
+        BM_Index_Insert<index_type, IdPattern::Sequential>(state);         \
+    }                                                                      \
+    static void BM_##prefix##_Sequential_Find(benchmark::State &state) {   \
+        BM_Index_Find<index_type, IdPattern::Sequential>(state);           \
+    }                                                                      \
+    static void BM_##prefix##_Sequential_Erase(benchmark::State &state) {  \
+        BM_Index_Erase<index_type, IdPattern::Sequential>(state);          \
+    }                                                                      \
+    static void BM_##prefix##_BadLowBits_Insert(benchmark::State &state) { \
+        BM_Index_Insert<index_type, IdPattern::BadLowBits>(state);         \
+    }                                                                      \
+    static void BM_##prefix##_BadLowBits_Find(benchmark::State &state) {   \
+        BM_Index_Find<index_type, IdPattern::BadLowBits>(state);           \
+    }                                                                      \
+    static void BM_##prefix##_BadLowBits_Erase(benchmark::State &state) {  \
+        BM_Index_Erase<index_type, IdPattern::BadLowBits>(state);          \
     }
 
 DEFINE_INDEX_BENCHMARKS(FastIndex, FastIndex)
 DEFINE_INDEX_BENCHMARKS(RobustIndex, RobustIndex)
 DEFINE_INDEX_BENCHMARKS(UnorderedMap, UnorderedMapIndex)
 
-#define REGISTER_INDEX_BENCHMARKS(prefix)                                                    \
-    BENCHMARK(BM_##prefix##_InsertSequential)->RangeMultiplier(10)->Range(1'000, 1'000'000); \
-    BENCHMARK(BM_##prefix##_FindSequential)->RangeMultiplier(10)->Range(1'000, 1'000'000);   \
-    BENCHMARK(BM_##prefix##_EraseSequential)->RangeMultiplier(10)->Range(1'000, 1'000'000);  \
-    BENCHMARK(BM_##prefix##_InsertBadLowBits)->RangeMultiplier(10)->Range(1'000, 1'000'000); \
-    BENCHMARK(BM_##prefix##_FindBadLowBits)->RangeMultiplier(10)->Range(1'000, 1'000'000);   \
-    BENCHMARK(BM_##prefix##_EraseBadLowBits)->RangeMultiplier(10)->Range(1'000, 1'000'000);
+#define REGISTER_INDEX_BENCHMARKS(prefix)                                                     \
+    BENCHMARK(BM_##prefix##_Sequential_Insert)->RangeMultiplier(10)->Range(1'000, 1'000'000); \
+    BENCHMARK(BM_##prefix##_Sequential_Find)->RangeMultiplier(10)->Range(1'000, 1'000'000);   \
+    BENCHMARK(BM_##prefix##_Sequential_Erase)->RangeMultiplier(10)->Range(1'000, 1'000'000);  \
+    BENCHMARK(BM_##prefix##_BadLowBits_Insert)->RangeMultiplier(10)->Range(1'000, 1'000'000); \
+    BENCHMARK(BM_##prefix##_BadLowBits_Find)->RangeMultiplier(10)->Range(1'000, 1'000'000);   \
+    BENCHMARK(BM_##prefix##_BadLowBits_Erase)->RangeMultiplier(10)->Range(1'000, 1'000'000);
 
 REGISTER_INDEX_BENCHMARKS(FastIndex)
 REGISTER_INDEX_BENCHMARKS(RobustIndex)

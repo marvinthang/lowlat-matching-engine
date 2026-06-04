@@ -9,6 +9,8 @@
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/profile_full_match.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/profile_full_match_no_exec.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/profile_full_match_raw_exec.dir
+/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/test_spsc_ring.dir
+/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/bench_pipeline.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/edit_cache.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/rebuild_cache.dir
 /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/list_install_components.dir

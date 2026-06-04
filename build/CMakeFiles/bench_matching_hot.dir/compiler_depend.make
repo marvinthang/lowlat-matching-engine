@@ -18,12 +18,13 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o: /home/marvinth
   /home/marvinthang/projects/lowlat-matching-engine/src/execution.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/execution_sink.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/fixed_clob.hpp \
-  /home/marvinthang/projects/lowlat-matching-engine/src/market_order.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/order.hpp \
+  /home/marvinthang/projects/lowlat-matching-engine/src/order_command.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/order_index.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/order_pool.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/price_level.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/types.hpp \
+  /home/marvinthang/projects/lowlat-matching-engine/src/workload.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -456,10 +457,6 @@ bench_matching_hot: /lib64/ld-linux-x86-64.so.2 \
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
-/usr/include/c++/15/bits/uniform_int_dist.h:
-
-/usr/include/features-time64.h:
-
 /usr/include/c++/15/bits/streambuf_iterator.h:
 
 /home/marvinthang/projects/lowlat-matching-engine/bench/bench_matching_hot.cpp:
@@ -472,13 +469,15 @@ bench_matching_hot: /lib64/ld-linux-x86-64.so.2 \
 
 /usr/include/c++/15/bits/stl_set.h:
 
-/usr/include/assert.h:
-
 /usr/include/c++/15/bits/ranges_uninitialized.h:
 
 /usr/include/c++/15/cctype:
 
 /usr/include/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/c++/15/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/15/ext/atomicity.h:
 
@@ -505,10 +504,6 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/type_traits:
 
 /usr/include/c++/15/bits/ranges_cmp.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
-
-/usr/include/c++/15/bits/range_access.h:
 
 /usr/include/x86_64-linux-gnu/asm/posix_types.h:
 
@@ -542,10 +537,6 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/c++/15/bits/locale_classes.tcc:
 
-/usr/include/c++/15/algorithm:
-
-/usr/include/c++/15/bits/hash_bytes.h:
-
 /usr/include/c++/15/bits/memoryfwd.h:
 
 /usr/lib/x86_64-linux-gnu/libm.so:
@@ -568,6 +559,16 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
+/usr/include/c++/15/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/15/bits/ranges_util.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a:
+
+/usr/include/c++/15/array:
+
+/usr/include/c++/15/tuple:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
@@ -583,6 +584,18 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/typeinfo:
 
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
+
+/usr/include/c++/15/bits/range_access.h:
+
+/usr/include/c++/15/bits/hash_bytes.h:
+
+/usr/include/c++/15/algorithm:
+
+/usr/include/assert.h:
+
+/home/marvinthang/projects/lowlat-matching-engine/src/workload.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
@@ -616,35 +629,15 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 
 /home/marvinthang/projects/lowlat-matching-engine/src/fixed_clob.hpp:
 
+/usr/include/c++/15/bits/stl_multiset.h:
+
+/home/marvinthang/projects/lowlat-matching-engine/src/execution_sink.hpp:
+
 /home/marvinthang/projects/benchmark/include/benchmark/utils.h:
 
 /usr/include/c++/15/bits/invoke.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/c++/15/bits/stl_multiset.h:
-
-/home/marvinthang/projects/lowlat-matching-engine/src/execution_sink.hpp:
-
-/home/marvinthang/projects/lowlat-matching-engine/src/market_order.hpp:
-
-/usr/include/locale.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/usr/include/c++/15/bits/ios_base.h:
-
-/usr/include/wchar.h:
-
-/usr/include/c++/15/bits/alloc_traits.h:
-
-/usr/include/c++/15/bits/stringfwd.h:
-
-/usr/include/c++/15/bits/erase_if.h:
-
-/usr/include/c++/15/bits/istream.tcc:
-
-/usr/include/c++/15/bits/allocated_ptr.h:
 
 /usr/include/c++/15/bits/ostream.tcc:
 
@@ -663,6 +656,12 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 /usr/include/c++/15/bits/enable_special_members.h:
 
 /usr/include/c++/15/bits/stl_tree.h:
+
+/usr/include/c++/15/bits/exception_defines.h:
+
+/usr/include/c++/15/backward/auto_ptr.h:
+
+/usr/include/c++/15/bits/stl_heap.h:
 
 /usr/include/x86_64-linux-gnu/bits/syscall.h:
 
@@ -699,10 +698,6 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 /usr/include/c++/15/bits/stl_vector.h:
 
 /usr/include/c++/15/bits/algorithmfwd.h:
-
-/usr/include/c++/15/bits/charconv.h:
-
-/usr/include/c++/15/pstl/glue_algorithm_defs.h:
 
 /home/marvinthang/projects/benchmark/include/benchmark/managers.h:
 
@@ -746,23 +741,23 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 
 /usr/include/c++/15/bits/char_traits.h:
 
-/usr/include/c++/15/backward/auto_ptr.h:
-
-/usr/include/c++/15/bits/stl_heap.h:
-
-/usr/include/c++/15/bits/exception_defines.h:
-
 /home/marvinthang/projects/lowlat-matching-engine/src/order.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a:
+/usr/lib/x86_64-linux-gnu/libmvec.so.1:
 
-/usr/include/c++/15/array:
+/usr/include/c++/15/bits/stl_iterator_base_types.h:
 
-/usr/include/c++/15/bits/stl_raw_storage_iter.h:
+/usr/include/c++/15/bit:
 
-/usr/include/c++/15/bits/ranges_util.h:
+/usr/include/c++/15/bits/allocator.h:
 
-/usr/include/c++/15/tuple:
+/usr/include/asm-generic/posix_types.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/c++/15/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/15/bits/charconv.h:
 
 /usr/include/c++/15/bits/stl_tempbuf.h:
 
@@ -772,21 +767,25 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 
 /usr/include/c++/15/utility:
 
+/home/marvinthang/projects/lowlat-matching-engine/src/order_command.hpp:
+
 /usr/include/c++/15/bits/align.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
-/usr/lib/x86_64-linux-gnu/libmvec.so.1:
+/usr/include/c++/15/bits/ios_base.h:
 
-/usr/include/c++/15/bits/stl_iterator_base_types.h:
+/usr/include/wchar.h:
 
-/usr/include/stdc-predef.h:
+/usr/include/c++/15/bits/alloc_traits.h:
 
-/usr/include/c++/15/bit:
+/usr/include/c++/15/bits/stringfwd.h:
 
-/usr/include/asm-generic/posix_types.h:
+/usr/include/c++/15/bits/erase_if.h:
 
-/usr/include/c++/15/bits/allocator.h:
+/usr/include/c++/15/bits/istream.tcc:
+
+/usr/include/c++/15/bits/allocated_ptr.h:
 
 /usr/include/c++/15/bits/atomic_base.h:
 
@@ -840,6 +839,10 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 
 /usr/include/c++/15/initializer_list:
 
+/usr/include/c++/15/bits/uniform_int_dist.h:
+
+/usr/include/features-time64.h:
+
 /usr/include/c++/15/bits/unique_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
@@ -857,10 +860,6 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 /usr/include/c++/15/cstdio:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
-
-/usr/include/c++/15/debug/assertions.h:
 
 /usr/include/c++/15/debug/debug.h:
 
@@ -962,6 +961,14 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 
 /usr/include/linux/stddef.h:
 
+/usr/include/locale.h:
+
+/usr/include/c++/15/debug/assertions.h:
+
+/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
 /usr/include/wctype.h:
 
 /usr/include/sched.h:
@@ -1031,7 +1038,3 @@ CMakeFiles/bench_matching_hot.dir/bench/bench_matching_hot.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-/usr/include/c++/15/bits/stl_iterator_base_funcs.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:

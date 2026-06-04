@@ -30,7 +30,6 @@ class ExecutionBuffer {
         data_[size_++] = Execution{incoming_order_id, resting_order_id, price, qty};
     }
 
-
     std::size_t size() const {
         return size_;
     }

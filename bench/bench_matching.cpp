@@ -1,21 +1,22 @@
-#include "market_order.hpp"
-#include "execution.hpp"
+#include "workload.hpp"
+#include "execution_sink.hpp"
 #include "fixed_clob.hpp"
 
 #include <benchmark/benchmark.h>
 
 template <class OrderIdHash>
-static void BM_Matching_AddOnly(benchmark::State &state) {
+static void run_matching_add_only(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
-    const auto orders = make_non_crossing_buys(n);
+    const auto commands = make_add_only_commands(n);
 
     for (auto _ : state) {
         FixedClob<1 << 20, OrderIdHash> book(8000, 12000);
-        std::vector<Execution> executions;
+        ExecutionBuffer executions;
+        executions.reserve(n);
 
-        for (const auto &order : orders) {
-            benchmark::DoNotOptimize(book.submit_limit_order(order.order_id, order.side,
-                                                             order.price, order.qty, executions));
+        for (const auto &command : commands) {
+            benchmark::DoNotOptimize(book.submit_limit_order(
+                command.order_id, command.side, command.price, command.qty, executions));
         }
 
         benchmark::DoNotOptimize(book.best_bid());
@@ -26,28 +27,19 @@ static void BM_Matching_AddOnly(benchmark::State &state) {
 }
 
 template <class OrderIdHash>
-static void BM_Matching_FullMatchOneLevel(benchmark::State &state) {
+static void run_matching_full_match(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
+
+    const auto commands = make_full_match_commands(n);
 
     for (auto _ : state) {
         FixedClob<1 << 20, OrderIdHash> book(8000, 12000);
-        std::vector<Execution> executions;
+        ExecutionBuffer executions;
         executions.reserve(n);
 
-        for (std::size_t i = 0; i < n; ++i) {
-            OrderId ask_id = static_cast<OrderId>(i + 1);
-            Quantity qty = static_cast<Quantity>(i % 100 + 1);
-
-            benchmark::DoNotOptimize(
-                book.submit_limit_order(ask_id, Side::Sell, 10000, qty, executions));
-        }
-
-        for (std::size_t i = 0; i < n; ++i) {
-            OrderId buy_id = static_cast<OrderId>(n + i + 1);
-            Quantity qty = static_cast<Quantity>(i % 100 + 1);
-
-            benchmark::DoNotOptimize(
-                book.submit_limit_order(buy_id, Side::Buy, 10000, qty, executions));
+        for (const auto &command : commands) {
+            benchmark::DoNotOptimize(book.submit_limit_order(
+                command.order_id, command.side, command.price, command.qty, executions));
         }
 
         benchmark::DoNotOptimize(book.empty());
@@ -58,12 +50,12 @@ static void BM_Matching_FullMatchOneLevel(benchmark::State &state) {
 }
 
 template <class OrderIdHash>
-static void BM_Matching_SweepAskLevels(benchmark::State &state) {
+static void run_matching_sweep_ask_levels(benchmark::State &state) {
     const auto levels = static_cast<std::size_t>(state.range(0));
 
     for (auto _ : state) {
         FixedClob<1 << 15, OrderIdHash> book(8000, 25000);
-        std::vector<Execution> executions;
+        ExecutionBuffer executions;
         executions.reserve(levels);
 
         for (std::size_t i = 0; i < levels; ++i) {
@@ -91,36 +83,36 @@ static void BM_Matching_SweepAskLevels(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * levels);
 }
 
-static void BM_Matching_Fast_AddOnly(benchmark::State &state) {
-    BM_Matching_AddOnly<FastOrderIdHash>(state);
+static void BM_Direct_Fast_AddOnly_RawExec(benchmark::State &state) {
+    run_matching_add_only<FastOrderIdHash>(state);
 }
 
-static void BM_Matching_Fast_FullMatchOneLevel(benchmark::State &state) {
-    BM_Matching_FullMatchOneLevel<FastOrderIdHash>(state);
+static void BM_Direct_Fast_FullMatch_RawExec(benchmark::State &state) {
+    run_matching_full_match<FastOrderIdHash>(state);
 }
 
-static void BM_Matching_Fast_SweepAskLevels(benchmark::State &state) {
-    BM_Matching_SweepAskLevels<FastOrderIdHash>(state);
+static void BM_Direct_Fast_SweepAskLevels_RawExec(benchmark::State &state) {
+    run_matching_sweep_ask_levels<FastOrderIdHash>(state);
 }
 
-static void BM_Matching_Robust_AddOnly(benchmark::State &state) {
-    BM_Matching_AddOnly<RobustOrderIdHash>(state);
+static void BM_Direct_Robust_AddOnly_RawExec(benchmark::State &state) {
+    run_matching_add_only<RobustOrderIdHash>(state);
 }
 
-static void BM_Matching_Robust_FullMatchOneLevel(benchmark::State &state) {
-    BM_Matching_FullMatchOneLevel<RobustOrderIdHash>(state);
+static void BM_Direct_Robust_FullMatch_RawExec(benchmark::State &state) {
+    run_matching_full_match<RobustOrderIdHash>(state);
 }
 
-static void BM_Matching_Robust_SweepAskLevels(benchmark::State &state) {
-    BM_Matching_SweepAskLevels<RobustOrderIdHash>(state);
+static void BM_Direct_Robust_SweepAskLevels_RawExec(benchmark::State &state) {
+    run_matching_sweep_ask_levels<RobustOrderIdHash>(state);
 }
 
-BENCHMARK(BM_Matching_Fast_AddOnly)->RangeMultiplier(10)->Range(1'000, 1'000'000);
-BENCHMARK(BM_Matching_Fast_FullMatchOneLevel)->RangeMultiplier(10)->Range(1'000, 1'000'000);
-BENCHMARK(BM_Matching_Fast_SweepAskLevels)->RangeMultiplier(10)->Range(10, 10'000);
+BENCHMARK(BM_Direct_Fast_AddOnly_RawExec)->RangeMultiplier(10)->Range(1'000, 1'000'000);
+BENCHMARK(BM_Direct_Fast_FullMatch_RawExec)->RangeMultiplier(10)->Range(1'000, 1'000'000);
+BENCHMARK(BM_Direct_Fast_SweepAskLevels_RawExec)->RangeMultiplier(10)->Range(10, 10'000);
 
-BENCHMARK(BM_Matching_Robust_AddOnly)->RangeMultiplier(10)->Range(1'000, 1'000'000);
-BENCHMARK(BM_Matching_Robust_FullMatchOneLevel)->RangeMultiplier(10)->Range(1'000, 1'000'000);
-BENCHMARK(BM_Matching_Robust_SweepAskLevels)->RangeMultiplier(10)->Range(10, 10'000);
+BENCHMARK(BM_Direct_Robust_AddOnly_RawExec)->RangeMultiplier(10)->Range(1'000, 1'000'000);
+BENCHMARK(BM_Direct_Robust_FullMatch_RawExec)->RangeMultiplier(10)->Range(1'000, 1'000'000);
+BENCHMARK(BM_Direct_Robust_SweepAskLevels_RawExec)->RangeMultiplier(10)->Range(10, 10'000);
 
 BENCHMARK_MAIN();

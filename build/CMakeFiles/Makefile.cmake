@@ -88,6 +88,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/profile_full_match.dir/DependInfo.cmake"
   "CMakeFiles/profile_full_match_no_exec.dir/DependInfo.cmake"
   "CMakeFiles/profile_full_match_raw_exec.dir/DependInfo.cmake"
+  "CMakeFiles/test_spsc_ring.dir/DependInfo.cmake"
+  "CMakeFiles/bench_pipeline.dir/DependInfo.cmake"
   "benchmark_build/src/CMakeFiles/benchmark.dir/DependInfo.cmake"
   "benchmark_build/src/CMakeFiles/benchmark_main.dir/DependInfo.cmake"
   )
