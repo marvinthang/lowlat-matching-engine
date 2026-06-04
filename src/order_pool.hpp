@@ -7,7 +7,7 @@
 
 template <std::size_t MaxOrders>
 class OrderPool {
-   public:
+public:
     OrderPool()
         : orders_(std::make_unique<Order[]>(MaxOrders)),
           free_stack_(std::make_unique<OrderIndex[]>(MaxOrders)) {
@@ -62,7 +62,7 @@ class OrderPool {
         return top_ == MaxOrders;
     }
 
-   private:
+private:
     std::unique_ptr<Order[]> orders_;
     std::unique_ptr<OrderIndex[]> free_stack_;
     std::size_t top_{MaxOrders};

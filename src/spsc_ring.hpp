@@ -8,7 +8,7 @@
 
 template <class T, std::size_t Capacity>
 class SpscRing {
-   public:
+public:
     static_assert(Capacity > 1, "Capacity must be greater than 1");
     static_assert(std::has_single_bit(Capacity), "Capacity must be a power of 2");
 
@@ -40,13 +40,30 @@ class SpscRing {
         return true;
     }
 
-   private:
+    std::size_t pop_many(T *out, std::size_t max_count) {
+        std::size_t tail = tail_.load(std::memory_order_relaxed);
+        std::size_t head = head_.load(std::memory_order_acquire);
+
+        std::size_t count = std::min(head - tail, max_count);
+        if (count == 0) {
+            return 0;
+        }
+
+        for (std::size_t i = 0; i < count; ++i) {
+            out[i] = data_[(tail + i) & mask()];
+        }
+
+        tail_.store(tail + count, std::memory_order_release);
+        return count;
+    }
+
+private:
     constexpr static std::size_t mask() {
         return Capacity - 1;
     }
 
     std::unique_ptr<T[]> data_;
 
-    std::atomic<std::size_t> head_{0};
-    std::atomic<std::size_t> tail_{0};
+    alignas(64) std::atomic<std::size_t> head_{0};
+    alignas(64) std::atomic<std::size_t> tail_{0};
 };

@@ -8,7 +8,7 @@
 #include <algorithm>
 
 class ExecutionBuffer {
-   public:
+public:
     void reserve(std::size_t new_capacity) {
         if (new_capacity <= capacity_) {
             return;
@@ -38,14 +38,14 @@ class ExecutionBuffer {
         size_ = 0;
     }
 
-   private:
+private:
     std::unique_ptr<Execution[]> data_;
     std::size_t capacity_{0};
     std::size_t size_{0};
 };
 
 class NullExecutionSink {
-   public:
+public:
     void reserve(std::size_t) {}
 
     void emplace_back(OrderId incoming_order_id, OrderId resting_order_id, Price price,

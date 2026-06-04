@@ -12,7 +12,7 @@
 
 template <std::size_t MaxOrders, class OrderIdHash = FastOrderIdHash>
 class FixedClob {
-   public:
+public:
     using Level = std::pair<Price, Quantity>;
 
     FixedClob(Price min_price, Price max_price)
@@ -155,7 +155,7 @@ class FixedClob {
         return pool_.get(lvl.tail_idx).order_id;
     }
 
-   private:
+private:
     std::size_t range_size() const {
         assert(min_price_ <= max_price_);
         return static_cast<std::size_t>(max_price_ - min_price_ + 1);

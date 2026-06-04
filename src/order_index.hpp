@@ -29,7 +29,7 @@ struct RobustOrderIdHash {
 
 template <std::size_t Capacity, class Hash = FastOrderIdHash>
 class FixedOrderIndex {
-   public:
+public:
     FixedOrderIndex()
         : keys_(std::make_unique_for_overwrite<OrderId[]>(Capacity)),
           values_(std::make_unique_for_overwrite<OrderIndex[]>(Capacity)),
@@ -135,7 +135,7 @@ class FixedOrderIndex {
         return size_ == Capacity;
     }
 
-   private:
+private:
     enum class State : std::uint8_t {
         Empty,
         Occupied,

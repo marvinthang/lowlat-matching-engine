@@ -7,6 +7,8 @@ TabWidth: 4
 UseTab: Never
 ColumnLimit: 100
 
+AccessModifierOffset: -4
+
 DerivePointerAlignment: false
 PointerAlignment: Right
 ReferenceAlignment: Right
