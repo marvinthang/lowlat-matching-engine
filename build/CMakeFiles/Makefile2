@@ -76,6 +76,7 @@ all: CMakeFiles/profile_full_match_no_exec.dir/all
 all: CMakeFiles/profile_full_match_raw_exec.dir/all
 all: CMakeFiles/test_spsc_ring.dir/all
 all: CMakeFiles/bench_pipeline.dir/all
+all: CMakeFiles/test_spsc_cached.dir/all
 all: benchmark_build/all
 .PHONY : all
 
@@ -93,6 +94,7 @@ codegen: CMakeFiles/profile_full_match_no_exec.dir/codegen
 codegen: CMakeFiles/profile_full_match_raw_exec.dir/codegen
 codegen: CMakeFiles/test_spsc_ring.dir/codegen
 codegen: CMakeFiles/bench_pipeline.dir/codegen
+codegen: CMakeFiles/test_spsc_cached.dir/codegen
 codegen: benchmark_build/codegen
 .PHONY : codegen
 
@@ -114,6 +116,7 @@ clean: CMakeFiles/profile_full_match_no_exec.dir/clean
 clean: CMakeFiles/profile_full_match_raw_exec.dir/clean
 clean: CMakeFiles/test_spsc_ring.dir/clean
 clean: CMakeFiles/bench_pipeline.dir/clean
+clean: CMakeFiles/test_spsc_cached.dir/clean
 clean: benchmark_build/clean
 .PHONY : clean
 
@@ -517,7 +520,7 @@ CMakeFiles/profile_full_match_raw_exec.dir/clean:
 CMakeFiles/test_spsc_ring.dir/all: benchmark_build/src/CMakeFiles/benchmark.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_ring.dir/build.make CMakeFiles/test_spsc_ring.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_ring.dir/build.make CMakeFiles/test_spsc_ring.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=47,48 "Built target test_spsc_ring"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=49,50 "Built target test_spsc_ring"
 .PHONY : CMakeFiles/test_spsc_ring.dir/all
 
 # Build rule for subdir invocation for target.
@@ -534,7 +537,7 @@ test_spsc_ring: CMakeFiles/test_spsc_ring.dir/rule
 # codegen rule for target.
 CMakeFiles/test_spsc_ring.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_ring.dir/build.make CMakeFiles/test_spsc_ring.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=47,48 "Finished codegen for target test_spsc_ring"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=49,50 "Finished codegen for target test_spsc_ring"
 .PHONY : CMakeFiles/test_spsc_ring.dir/codegen
 
 # clean rule for target.
@@ -573,6 +576,38 @@ CMakeFiles/bench_pipeline.dir/codegen:
 CMakeFiles/bench_pipeline.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_pipeline.dir/build.make CMakeFiles/bench_pipeline.dir/clean
 .PHONY : CMakeFiles/bench_pipeline.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_spsc_cached.dir
+
+# All Build rule for target.
+CMakeFiles/test_spsc_cached.dir/all: benchmark_build/src/CMakeFiles/benchmark.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=47,48 "Built target test_spsc_cached"
+.PHONY : CMakeFiles/test_spsc_cached.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_spsc_cached.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles 22
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_spsc_cached.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_spsc_cached.dir/rule
+
+# Convenience name for target.
+test_spsc_cached: CMakeFiles/test_spsc_cached.dir/rule
+.PHONY : test_spsc_cached
+
+# codegen rule for target.
+CMakeFiles/test_spsc_cached.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=47,48 "Finished codegen for target test_spsc_cached"
+.PHONY : CMakeFiles/test_spsc_cached.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_spsc_cached.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/clean
+.PHONY : CMakeFiles/test_spsc_cached.dir/clean
 
 #=============================================================================
 # Target rules for target benchmark_build/src/CMakeFiles/benchmark.dir

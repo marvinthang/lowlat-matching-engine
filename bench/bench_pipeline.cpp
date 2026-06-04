@@ -242,7 +242,7 @@ static void run_pipeline_full_match_batch_pop(benchmark::State &state) {
 
                     if (command.type == CommandType::AddLimit) {
                         benchmark::DoNotOptimize(book.submit_limit_order(
-                        command.order_id, command.side, command.price, command.qty, executions));
+                            command.order_id, command.side, command.price, command.qty, executions));
                     } else if (command.type == CommandType::Cancel) {
                         benchmark::DoNotOptimize(book.cancel_order(command.order_id));
                     }
@@ -264,6 +264,7 @@ static void run_pipeline_full_match_batch_pop(benchmark::State &state) {
     state.SetItemsProcessed(state.iterations() * commands.size());
 }
 
+template <std::size_t BatchSize = batch_size>
 static void BM_Pipeline_FullMatch_QueueOnly(benchmark::State &state) {
     const auto n = static_cast<std::size_t>(state.range(0));
     auto commands = make_full_match_commands(n);
@@ -289,15 +290,20 @@ static void BM_Pipeline_FullMatch_QueueOnly(benchmark::State &state) {
             while (!start.load(std::memory_order_acquire)) {
             }
 
-            OrderCommand command{};
+            std::array<OrderCommand, BatchSize> command_batch;
             std::size_t processed = 0;
 
             while (processed < commands.size()) {
-                if (!queue.pop(command)) {
+                std::size_t batch_count = queue.pop_many(command_batch.data(), BatchSize);
+                if (batch_count == 0) {
                     continue;
                 }
-                benchmark::DoNotOptimize(command);
-                ++processed;
+
+                for (std::size_t i = 0; i < batch_count; ++i) {
+                    benchmark::DoNotOptimize(command_batch[i]);
+                }
+
+                processed += batch_count;
             }
         });
 
@@ -430,10 +436,12 @@ BENCHMARK(BM_Pipeline_Fast_FullMatch_RawExec)
     ->RangeMultiplier(10)
     ->Range(1'000, 1'000'000)
     ->UseRealTime();
-BENCHMARK(BM_Pipeline_FullMatch_QueueOnly)
+
+BENCHMARK(BM_Pipeline_FullMatch_QueueOnly<32>)
     ->RangeMultiplier(10)
     ->Range(1'000, 1'000'000)
     ->UseRealTime();
+
 BENCHMARK(BM_Pipeline_Uint64_QueueOnly)
     ->RangeMultiplier(10)
     ->Range(1'000, 1'000'000)
@@ -446,23 +454,8 @@ BENCHMARK(BM_Pipeline_Fast_FullMatch_IndexQueue_RawExec)
     ->RangeMultiplier(10)
     ->Range(1'000, 1'000'000)
     ->UseRealTime();
-BENCHMARK(BM_Pipeline_FullMatch_BatchPop_RawExec<8>)
-    ->RangeMultiplier(10)
-    ->Range(1'000, 1'000'000)
-    ->UseRealTime();
-BENCHMARK(BM_Pipeline_FullMatch_BatchPop_RawExec<16>)
-    ->RangeMultiplier(10)
-    ->Range(1'000, 1'000'000)
-    ->UseRealTime();
+
 BENCHMARK(BM_Pipeline_FullMatch_BatchPop_RawExec<32>)
-    ->RangeMultiplier(10)
-    ->Range(1'000, 1'000'000)
-    ->UseRealTime();
-BENCHMARK(BM_Pipeline_FullMatch_BatchPop_RawExec<64>)
-    ->RangeMultiplier(10)
-    ->Range(1'000, 1'000'000)
-    ->UseRealTime();
-BENCHMARK(BM_Pipeline_FullMatch_BatchPop_RawExec<128>)
     ->RangeMultiplier(10)
     ->Range(1'000, 1'000'000)
     ->UseRealTime();

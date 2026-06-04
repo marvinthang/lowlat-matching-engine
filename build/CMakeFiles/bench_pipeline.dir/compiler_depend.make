@@ -24,6 +24,7 @@ CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o: /home/marvinthang/proj
   /home/marvinthang/projects/lowlat-matching-engine/src/order_pool.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/price_level.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring.hpp \
+  /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring_cached.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/types.hpp \
   /home/marvinthang/projects/lowlat-matching-engine/src/workload.hpp \
   /usr/include/alloca.h \
@@ -500,6 +501,10 @@ CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/select2.h:
 
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
 /usr/include/c++/15/bits/stl_set.h:
 
 /usr/include/c++/15/bits/ranges_uninitialized.h:
@@ -598,16 +603,6 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/c++/15/tuple:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/syscall.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
 
 /usr/include/c++/15/bits/range_access.h:
@@ -698,10 +693,6 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/c++/15/bits/atomic_wait.h:
 
-/usr/include/c++/15/bits/enable_special_members.h:
-
-/usr/include/c++/15/bits/stl_tree.h:
-
 /usr/include/c++/15/bits/exception_defines.h:
 
 /usr/include/c++/15/backward/auto_ptr.h:
@@ -774,6 +765,16 @@ benchmark_build/src/libbenchmark.a:
 
 /home/marvinthang/projects/lowlat-matching-engine/src/order.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/syscall.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
 /usr/lib/x86_64-linux-gnu/libmvec.so.1:
 
 /usr/include/c++/15/bits/stl_iterator_base_types.h:
@@ -797,6 +798,8 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/backward/binders.h:
 
 /usr/include/c++/15/utility:
+
+/usr/include/c++/15/istream:
 
 /home/marvinthang/projects/lowlat-matching-engine/src/order_command.hpp:
 
@@ -864,6 +867,10 @@ benchmark_build/src/libbenchmark.a:
 
 /usr/include/c++/15/map:
 
+/usr/include/c++/15/bits/enable_special_members.h:
+
+/usr/include/c++/15/bits/stl_tree.h:
+
 /usr/include/c++/15/bits/stl_multimap.h:
 
 /usr/include/c++/15/bits/shared_ptr_base.h:
@@ -899,6 +906,8 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/bits/uniform_int_dist.h:
 
 /usr/include/features-time64.h:
+
+/home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring_cached.hpp:
 
 /usr/include/c++/15/bits/unique_ptr.h:
 
@@ -949,8 +958,6 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/bits/vector.tcc:
 
 /usr/include/c++/15/iostream:
-
-/usr/include/c++/15/istream:
 
 /usr/include/linux/errno.h:
 
@@ -1079,7 +1086,3 @@ benchmark_build/src/libbenchmark.a:
 /usr/include/c++/15/bits/atomic_lockfree_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/select-decl.h:
-
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:

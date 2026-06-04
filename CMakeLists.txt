@@ -69,3 +69,7 @@ target_compile_options(test_spsc_ring PRIVATE -Wall -Wextra -UNDEBUG)
 add_executable(bench_pipeline bench/bench_pipeline.cpp)
 target_link_libraries(bench_pipeline PRIVATE lowlat benchmark::benchmark)
 target_compile_options(bench_pipeline PRIVATE -Wall -Wextra -UNDEBUG)
+
+add_executable(test_spsc_cached tests/test_spsc_cached.cpp)
+target_link_libraries(test_spsc_cached PRIVATE lowlat benchmark::benchmark)
+target_compile_options(test_spsc_cached PRIVATE -Wall -Wextra -UNDEBUG)

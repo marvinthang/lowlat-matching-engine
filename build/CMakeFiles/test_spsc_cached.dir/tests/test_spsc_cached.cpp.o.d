@@ -1,7 +1,7 @@
-CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o: \
- /home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_ring.cpp \
+CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o: \
+ /home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_cached.cpp \
  /usr/include/stdc-predef.h \
- /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring.hpp \
+ /home/marvinthang/projects/lowlat-matching-engine/src/spsc_ring_cached.hpp \
  /usr/include/c++/15/cstddef \
  /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h \
@@ -223,7 +223,7 @@ CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o: \
  /usr/include/c++/15/bits/stl_heap.h \
  /usr/include/c++/15/bits/uniform_int_dist.h \
  /usr/include/c++/15/bits/ranges_algo.h \
- /usr/include/c++/15/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/15/pstl/glue_algorithm_defs.h /usr/include/c++/15/array \
  /usr/include/c++/15/iostream /usr/include/c++/15/ostream \
  /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/istream \
  /usr/include/c++/15/bits/istream.tcc /usr/include/c++/15/thread \
@@ -235,4 +235,7 @@ CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o: \
  /usr/include/c++/15/bits/atomic_timed_wait.h \
  /usr/include/c++/15/bits/this_thread_sleep.h \
  /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/semaphore.h \
- /usr/include/x86_64-linux-gnu/bits/semaphore.h
+ /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+ /usr/include/c++/15/vector /usr/include/c++/15/bits/stl_vector.h \
+ /usr/include/c++/15/bits/stl_bvector.h \
+ /usr/include/c++/15/bits/vector.tcc

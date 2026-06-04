@@ -5,6 +5,7 @@
 #include <atomic>
 #include <cassert>
 #include <bit>
+#include <algorithm>
 
 template <class T, std::size_t Capacity>
 class SpscRing {

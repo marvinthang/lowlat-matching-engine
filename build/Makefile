@@ -331,6 +331,19 @@ bench_pipeline/fast:
 .PHONY : bench_pipeline/fast
 
 #=============================================================================
+# Target rules for targets named test_spsc_cached
+
+# Build rule for target.
+test_spsc_cached: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_spsc_cached
+.PHONY : test_spsc_cached
+
+# fast build rule for target.
+test_spsc_cached/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/build
+.PHONY : test_spsc_cached/fast
+
+#=============================================================================
 # Target rules for targets named benchmark
 
 # Build rule for target.
@@ -572,6 +585,30 @@ tests/test_order_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_order_pool.dir/build.make CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.s
 .PHONY : tests/test_order_pool.cpp.s
 
+tests/test_spsc_cached.o: tests/test_spsc_cached.cpp.o
+.PHONY : tests/test_spsc_cached.o
+
+# target to build an object file
+tests/test_spsc_cached.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o
+.PHONY : tests/test_spsc_cached.cpp.o
+
+tests/test_spsc_cached.i: tests/test_spsc_cached.cpp.i
+.PHONY : tests/test_spsc_cached.i
+
+# target to preprocess a source file
+tests/test_spsc_cached.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.i
+.PHONY : tests/test_spsc_cached.cpp.i
+
+tests/test_spsc_cached.s: tests/test_spsc_cached.cpp.s
+.PHONY : tests/test_spsc_cached.s
+
+# target to generate assembly for a file
+tests/test_spsc_cached.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_spsc_cached.dir/build.make CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.s
+.PHONY : tests/test_spsc_cached.cpp.s
+
 tests/test_spsc_ring.o: tests/test_spsc_ring.cpp.o
 .PHONY : tests/test_spsc_ring.o
 
@@ -694,6 +731,7 @@ help:
 	@echo "... test_matching"
 	@echo "... test_order_index"
 	@echo "... test_order_pool"
+	@echo "... test_spsc_cached"
 	@echo "... test_spsc_ring"
 	@echo "... bench/bench_fixed_clob.o"
 	@echo "... bench/bench_fixed_clob.i"
@@ -722,6 +760,9 @@ help:
 	@echo "... tests/test_order_pool.o"
 	@echo "... tests/test_order_pool.i"
 	@echo "... tests/test_order_pool.s"
+	@echo "... tests/test_spsc_cached.o"
+	@echo "... tests/test_spsc_cached.i"
+	@echo "... tests/test_spsc_cached.s"
 	@echo "... tests/test_spsc_ring.o"
 	@echo "... tests/test_spsc_ring.i"
 	@echo "... tests/test_spsc_ring.s"
