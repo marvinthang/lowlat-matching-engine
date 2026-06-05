@@ -73,3 +73,11 @@ target_compile_options(bench_pipeline PRIVATE -Wall -Wextra -UNDEBUG)
 add_executable(test_spsc_cached tests/test_spsc_cached.cpp)
 target_link_libraries(test_spsc_cached PRIVATE lowlat benchmark::benchmark)
 target_compile_options(test_spsc_cached PRIVATE -Wall -Wextra -UNDEBUG)
+
+add_executable(test_simd_scan tests/test_simd_scan.cpp)
+target_link_libraries(test_simd_scan PRIVATE lowlat)
+target_compile_options(test_simd_scan PRIVATE -Wall -Wextra -mavx2 -UNDEBUG)
+
+add_executable(bench_simd_scan bench/bench_simd_scan.cpp)
+target_link_libraries(bench_simd_scan PRIVATE lowlat benchmark::benchmark)
+target_compile_options(bench_simd_scan PRIVATE -Wall -Wextra -mavx2 -UNDEBUG)

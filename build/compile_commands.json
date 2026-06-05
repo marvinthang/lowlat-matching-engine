@@ -84,6 +84,18 @@
   "output": "CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o"
 },
 {
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -mavx2 -UNDEBUG -o CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_simd_scan.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_simd_scan.cpp",
+  "output": "CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -mavx2 -UNDEBUG -o CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_simd_scan.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_simd_scan.cpp",
+  "output": "CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.o"
+},
+{
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",
   "command": "/usr/bin/c++ -DBENCHMARK_HAS_PTHREAD_AFFINITY -DBENCHMARK_STATIC_DEFINE -DHAVE_POSIX_REGEX -DHAVE_PTHREAD_AFFINITY -DHAVE_STD_REGEX -DHAVE_STEADY_CLOCK -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -DBENCHMARK_VERSION=\\\"v1.9.5-57-gac68e7d7\\\" -I/home/marvinthang/projects/benchmark/include -I/home/marvinthang/projects/benchmark/src   -Wall  -Wextra  -Wshadow  -Wfloat-equal  -Wold-style-cast  -Wconversion  -Wformat=2  -Werror  -pedantic-errors  -Wsuggest-override  -pedantic  -fstrict-aliasing  -Wno-deprecated-declarations  -Wno-deprecated  -Wstrict-aliasing -O3 -DNDEBUG -std=c++17 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/benchmark.dir/benchmark.cc.o -c /home/marvinthang/projects/benchmark/src/benchmark.cc",
   "file": "/home/marvinthang/projects/benchmark/src/benchmark.cc",

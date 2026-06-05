@@ -344,6 +344,32 @@ test_spsc_cached/fast:
 .PHONY : test_spsc_cached/fast
 
 #=============================================================================
+# Target rules for targets named test_simd_scan
+
+# Build rule for target.
+test_simd_scan: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_simd_scan
+.PHONY : test_simd_scan
+
+# fast build rule for target.
+test_simd_scan/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_simd_scan.dir/build.make CMakeFiles/test_simd_scan.dir/build
+.PHONY : test_simd_scan/fast
+
+#=============================================================================
+# Target rules for targets named bench_simd_scan
+
+# Build rule for target.
+bench_simd_scan: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_simd_scan
+.PHONY : bench_simd_scan
+
+# fast build rule for target.
+bench_simd_scan/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_simd_scan.dir/build.make CMakeFiles/bench_simd_scan.dir/build
+.PHONY : bench_simd_scan/fast
+
+#=============================================================================
 # Target rules for targets named benchmark
 
 # Build rule for target.
@@ -489,6 +515,30 @@ bench/bench_pipeline.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_pipeline.dir/build.make CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.s
 .PHONY : bench/bench_pipeline.cpp.s
 
+bench/bench_simd_scan.o: bench/bench_simd_scan.cpp.o
+.PHONY : bench/bench_simd_scan.o
+
+# target to build an object file
+bench/bench_simd_scan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_simd_scan.dir/build.make CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.o
+.PHONY : bench/bench_simd_scan.cpp.o
+
+bench/bench_simd_scan.i: bench/bench_simd_scan.cpp.i
+.PHONY : bench/bench_simd_scan.i
+
+# target to preprocess a source file
+bench/bench_simd_scan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_simd_scan.dir/build.make CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.i
+.PHONY : bench/bench_simd_scan.cpp.i
+
+bench/bench_simd_scan.s: bench/bench_simd_scan.cpp.s
+.PHONY : bench/bench_simd_scan.s
+
+# target to generate assembly for a file
+bench/bench_simd_scan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_simd_scan.dir/build.make CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.s
+.PHONY : bench/bench_simd_scan.cpp.s
+
 tests/test_fixed_clob.o: tests/test_fixed_clob.cpp.o
 .PHONY : tests/test_fixed_clob.o
 
@@ -584,6 +634,30 @@ tests/test_order_pool.s: tests/test_order_pool.cpp.s
 tests/test_order_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_order_pool.dir/build.make CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.s
 .PHONY : tests/test_order_pool.cpp.s
+
+tests/test_simd_scan.o: tests/test_simd_scan.cpp.o
+.PHONY : tests/test_simd_scan.o
+
+# target to build an object file
+tests/test_simd_scan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_simd_scan.dir/build.make CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.o
+.PHONY : tests/test_simd_scan.cpp.o
+
+tests/test_simd_scan.i: tests/test_simd_scan.cpp.i
+.PHONY : tests/test_simd_scan.i
+
+# target to preprocess a source file
+tests/test_simd_scan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_simd_scan.dir/build.make CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.i
+.PHONY : tests/test_simd_scan.cpp.i
+
+tests/test_simd_scan.s: tests/test_simd_scan.cpp.s
+.PHONY : tests/test_simd_scan.s
+
+# target to generate assembly for a file
+tests/test_simd_scan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_simd_scan.dir/build.make CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.s
+.PHONY : tests/test_simd_scan.cpp.s
 
 tests/test_spsc_cached.o: tests/test_spsc_cached.cpp.o
 .PHONY : tests/test_spsc_cached.o
@@ -722,6 +796,7 @@ help:
 	@echo "... bench_matching_hot"
 	@echo "... bench_order_index"
 	@echo "... bench_pipeline"
+	@echo "... bench_simd_scan"
 	@echo "... benchmark"
 	@echo "... benchmark_main"
 	@echo "... profile_full_match"
@@ -731,6 +806,7 @@ help:
 	@echo "... test_matching"
 	@echo "... test_order_index"
 	@echo "... test_order_pool"
+	@echo "... test_simd_scan"
 	@echo "... test_spsc_cached"
 	@echo "... test_spsc_ring"
 	@echo "... bench/bench_fixed_clob.o"
@@ -748,6 +824,9 @@ help:
 	@echo "... bench/bench_pipeline.o"
 	@echo "... bench/bench_pipeline.i"
 	@echo "... bench/bench_pipeline.s"
+	@echo "... bench/bench_simd_scan.o"
+	@echo "... bench/bench_simd_scan.i"
+	@echo "... bench/bench_simd_scan.s"
 	@echo "... tests/test_fixed_clob.o"
 	@echo "... tests/test_fixed_clob.i"
 	@echo "... tests/test_fixed_clob.s"
@@ -760,6 +839,9 @@ help:
 	@echo "... tests/test_order_pool.o"
 	@echo "... tests/test_order_pool.i"
 	@echo "... tests/test_order_pool.s"
+	@echo "... tests/test_simd_scan.o"
+	@echo "... tests/test_simd_scan.i"
+	@echo "... tests/test_simd_scan.s"
 	@echo "... tests/test_spsc_cached.o"
 	@echo "... tests/test_spsc_cached.i"
 	@echo "... tests/test_spsc_cached.s"

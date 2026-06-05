@@ -91,6 +91,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_spsc_ring.dir/DependInfo.cmake"
   "CMakeFiles/bench_pipeline.dir/DependInfo.cmake"
   "CMakeFiles/test_spsc_cached.dir/DependInfo.cmake"
+  "CMakeFiles/test_simd_scan.dir/DependInfo.cmake"
+  "CMakeFiles/bench_simd_scan.dir/DependInfo.cmake"
   "benchmark_build/src/CMakeFiles/benchmark.dir/DependInfo.cmake"
   "benchmark_build/src/CMakeFiles/benchmark_main.dir/DependInfo.cmake"
   )
