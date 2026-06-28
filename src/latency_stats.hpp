@@ -1,12 +1,12 @@
 #pragma once
 
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
+#include <iomanip>
 #include <iostream>
-#include <algorithm>
 #include <numeric>
 #include <vector>
-#include <iomanip>
 
 class LatencyStats {
 public:
@@ -16,6 +16,7 @@ public:
 
     void add(std::uint64_t ns) {
         samples_.push_back(ns);
+        sorted_dirty_ = true;
     }
 
     std::size_t size() const {
@@ -31,9 +32,8 @@ public:
             return 0;
         }
 
-        std::vector<std::uint64_t> sorted = samples_;
-        std::sort(sorted.begin(), sorted.end());
-        return percentile_sorted(sorted, p);
+        ensure_sorted();
+        return percentile_sorted(sorted_samples_, p);
     }
 
     void print() const {
@@ -42,26 +42,36 @@ public:
             return;
         }
 
-        std::vector<std::uint64_t> sorted = samples_;
-        std::sort(sorted.begin(), sorted.end());
+        ensure_sorted();
 
-        std::uint64_t sum = std::accumulate(sorted.begin(), sorted.end(), std::uint64_t(0));
+        std::uint64_t sum =
+            std::accumulate(sorted_samples_.begin(), sorted_samples_.end(), std::uint64_t(0));
 
-        double mean = static_cast<double>(sum) / static_cast<double>(sorted.size());
+        double mean = static_cast<double>(sum) / static_cast<double>(sorted_samples_.size());
 
         std::cout << std::fixed << std::setprecision(2);
 
-        std::cout << "count=" << sorted.size() << "\n";
+        std::cout << "count=" << sorted_samples_.size() << "\n";
         std::cout << "mean_ns=" << mean << "\n";
-        std::cout << "min_ns=" << sorted.front() << "\n";
-        std::cout << "p50_ns=" << percentile_sorted(sorted, 0.5) << "\n";
-        std::cout << "p90_ns=" << percentile_sorted(sorted, 0.9) << "\n";
-        std::cout << "p99_ns=" << percentile_sorted(sorted, 0.99) << "\n";
-        std::cout << "p999_ns=" << percentile_sorted(sorted, 0.999) << "\n";
-        std::cout << "max_ns=" << sorted.back() << "\n";
+        std::cout << "min_ns=" << sorted_samples_.front() << "\n";
+        std::cout << "p50_ns=" << percentile_sorted(sorted_samples_, 0.5) << "\n";
+        std::cout << "p90_ns=" << percentile_sorted(sorted_samples_, 0.9) << "\n";
+        std::cout << "p99_ns=" << percentile_sorted(sorted_samples_, 0.99) << "\n";
+        std::cout << "p999_ns=" << percentile_sorted(sorted_samples_, 0.999) << "\n";
+        std::cout << "max_ns=" << sorted_samples_.back() << "\n";
     }
 
 private:
+    void ensure_sorted() const {
+        if (!sorted_dirty_ && sorted_samples_.size() == samples_.size()) {
+            return;
+        }
+
+        sorted_samples_ = samples_;
+        std::sort(sorted_samples_.begin(), sorted_samples_.end());
+        sorted_dirty_ = false;
+    }
+
     static std::uint64_t percentile_sorted(const std::vector<std::uint64_t> &sorted, double p) {
         if (sorted.empty()) {
             return 0;
@@ -78,4 +88,6 @@ private:
     }
 
     std::vector<std::uint64_t> samples_;
+    mutable std::vector<std::uint64_t> sorted_samples_;
+    mutable bool sorted_dirty_{true};
 };

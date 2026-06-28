@@ -8,6 +8,13 @@ Unless noted otherwise, important comparisons should be rerun with
 reported. Tables below prefer median results from repeated runs when available.
 Some rows are still directional notes from local exploratory runs.
 
+Google Benchmark targets are the canonical source for reported throughput numbers.
+The `tools/profile_*` programs are one-shot profiler harnesses for inspecting
+specific hot paths under tools such as `perf` or `callgrind`; their raw wall-clock
+output should not be reported as benchmark results unless clearly labeled as an
+exploratory profile run. `profile_pipeline_latency` is included here because it
+reports latency percentiles that the benchmark suite does not otherwise capture.
+
 ## Current main optimized path
 
 - `FixedClob<..., FastOrderIdHash>`
@@ -50,6 +57,16 @@ Hot one-level full-match path with `FastOrderIdHash`. `NullExec` measures the
 matching core with no execution output. `RawExec` uses a preallocated
 `ExecutionBuffer`, and is the chosen hot-path sink. `VectorExec` uses
 `std::vector<Execution>` and was slower in this tiny hot path.
+
+These are the canonical full-match throughput numbers from `bench_matching_hot`.
+The related `profile_full_match*` tools exist to inspect the same path, not to
+provide the reported throughput numbers:
+
+| Profile tool | Purpose |
+| --- | --- |
+| `profile_full_match_no_exec` | Matching core only; execution output discarded. |
+| `profile_full_match_raw_exec` | Matching plus `ExecutionBuffer` writes. |
+| `profile_full_match` | Matching plus `std::vector<Execution>` writes. |
 
 | Execution sink | Throughput |
 | --- | ---: |

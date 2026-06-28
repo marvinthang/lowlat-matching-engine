@@ -20,10 +20,32 @@ systems are designed, measured, and optimized.
 * Fast and robust order-id hash policy variants
 * SPSC queue for producer-consumer pipeline benchmarks
 * Pipeline benchmarks with raw execution reporting and batch pop
+* Latency percentile reporting through `LatencyStats`
 * AVX2 scan experiment for next non-zero level search
 * Google Benchmark microbenchmarks and local benchmark notes
 
+## Current Status
+
+Current:
+
+* Fixed-capacity CLOB matching core
+* Add/cancel/match support
+* Custom order-id index
+* Execution sinks
+* SPSC pipeline benchmarks
+* Latency percentile reporting
+
+Not yet:
+
+* Trader-side local order book
+* Strategy/risk pipeline
+* Market data replay
+* Real networking / kernel bypass
+* Multi-symbol sharding
+
 ## Architecture
+
+For a more detailed component map, see [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ```text
 OrderCommand stream
@@ -169,8 +191,10 @@ It is not currently integrated into `FixedClob`.
 
 ## Build
 
-This CMake file expects Google Benchmark to be available as a sibling checkout at
-`../benchmark`.
+Google Benchmark is used for the benchmark targets. CMake first looks for an
+installed `benchmark` package, then falls back to a sibling checkout at
+`../benchmark`. To build only tests/tools, configure with
+`-DLOWLAT_BUILD_BENCHMARKS=OFF`.
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -180,6 +204,14 @@ cmake --build build -j
 Some SIMD benchmarks/tests require AVX2 support and are compiled with `-mavx2`.
 
 ## Run Tests
+
+Tests are registered with CTest:
+
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+They can also be run directly:
 
 ```bash
 ./build/test_order_pool
@@ -209,6 +241,32 @@ For local notes, see:
 ```text
 BENCHMARKS.md
 ```
+
+## Run Profiling Tools
+
+The `tools/profile_*` programs are one-shot profiling harnesses, not canonical
+benchmark reporters. Use them when inspecting a specific path under tools such as
+`perf`, `callgrind`, or simple wall-clock timing.
+
+```bash
+./build/profile_full_match
+./build/profile_full_match_raw_exec
+./build/profile_full_match_no_exec
+./build/profile_pipeline_latency
+```
+
+The `profile_full_match*` tools inspect the same one-level full-match path with
+different execution sinks:
+
+```text
+profile_full_match_no_exec    matching core only
+profile_full_match_raw_exec   matching + ExecutionBuffer
+profile_full_match            matching + std::vector<Execution>
+```
+
+Report stable full-match throughput from `bench_matching_hot`, not from these
+one-shot profile tools. `profile_pipeline_latency` is separate: it reports queue,
+service, and end-to-end latency percentiles for the SPSC pipeline.
 
 ## Benchmark Notes
 
@@ -256,22 +314,25 @@ Current limitations:
 * No risk checks
 * No networking
 * No multi-symbol sharding
-* No latency histogram or p99 reporting yet
+* Full tick-to-trade strategy-pipeline profiling is not implemented yet
 * SIMD scan is standalone and not integrated into `FixedClob`
 * Benchmarks were run on a local laptop/WSL setup with CPU scaling enabled
+
+`LatencyStats` is available for benchmark reporting, including p50/p90/p99/p999.
+The current project profiles matching and pipeline latency, while full
+tick-to-trade strategy-pipeline profiling remains future work.
 
 ## Future Work
 
 Possible next steps:
 
-* Add latency histogram measurements
+* Add full tick-to-trade strategy-pipeline profiling
 * Add direct native Linux benchmark runs with controlled CPU governor
 * Add thread pinning experiments on a more stable setup
 * Add real feed/replay parser
 * Add multi-symbol engine sharding
 * Integrate occupancy-array best-price refresh and test scalar vs AVX2 refresh
 * Add more realistic mixed add/cancel/match workloads
-* Add benchmark reports for p50/p99 latency, not only throughput
 
 ## Project Status
 
