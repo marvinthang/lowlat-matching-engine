@@ -32,15 +32,21 @@ BENCHMARK_ENABLE_DOXYGEN:BOOL=OFF
 //Enable the use of exceptions in the benchmark library.
 BENCHMARK_ENABLE_EXCEPTIONS:BOOL=ON
 
+//Enable building the unit tests which depend on gtest
+BENCHMARK_ENABLE_GTEST_TESTS:BOOL=OFF
+
 //Enable installation of benchmark. (Projects embedding benchmark
 // may want to turn this OFF.)
-BENCHMARK_ENABLE_INSTALL:BOOL=ON
+BENCHMARK_ENABLE_INSTALL:BOOL=OFF
 
 //Enable performance counters provided by libpfm
 BENCHMARK_ENABLE_LIBPFM:BOOL=OFF
 
 //Enable link time optimisation of the benchmark library.
 BENCHMARK_ENABLE_LTO:BOOL=OFF
+
+//Enable testing of the benchmark library.
+BENCHMARK_ENABLE_TESTING:BOOL=OFF
 
 //Build Release candidates with -Werror.
 BENCHMARK_ENABLE_WERROR:BOOL=ON
@@ -67,6 +73,9 @@ BENCHMARK_USE_BUNDLED_GTEST:BOOL=ON
 
 //Build and test using libc++ as the standard library.
 BENCHMARK_USE_LIBCXX:BOOL=OFF
+
+//Build the testing tree.
+BUILD_TESTING:BOOL=ON
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
@@ -314,8 +323,27 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to the coverage program that CTest uses for performing coverage
+// inspection
+COVERAGE_COMMAND:FILEPATH=/usr/bin/gcov
+
+//Extra command line flags to pass to the coverage tool
+COVERAGE_EXTRA_FLAGS:STRING=-l
+
+//How many times to retry timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_COUNT:STRING=3
+
+//How long to wait between timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_DELAY:STRING=5
+
 //OFF
 CXXFEATURECHECK_DEBUG:BOOL=OFF
+
+//Maximum time allowed before CTest will kill the test.
+DART_TESTING_TIMEOUT:STRING=1500
+
+//Path to a program.
+GITCOMMAND:FILEPATH=/usr/bin/git
 
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=/usr/bin/git
@@ -323,8 +351,32 @@ GIT_EXECUTABLE:FILEPATH=/usr/bin/git
 //Path to a program.
 LLVM_FILECHECK_EXE:FILEPATH=LLVM_FILECHECK_EXE-NOTFOUND
 
+//Build Google Benchmark executables
+LOWLAT_BUILD_BENCHMARKS:BOOL=ON
+
+//Build lowlat assertion test executables
+LOWLAT_BUILD_TESTS:BOOL=ON
+
+//Build profiling tools
+LOWLAT_BUILD_TOOLS:BOOL=ON
+
+//Command to build the project
+MAKECOMMAND:STRING=/usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+
+//Path to the memory checking command, used for memory error detection.
+MEMORYCHECK_COMMAND:FILEPATH=/usr/bin/valgrind
+
+//File that contains suppressions for the memory checker
+MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
+
+//Name of the computer/site where compile is being run
+SITE:STRING=marvinthang-laptop
+
 //Value Computed by CMake
 benchmark_BINARY_DIR:STATIC=/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build
+
+//The directory containing a CMake configuration file for benchmark.
+benchmark_DIR:PATH=benchmark_DIR-NOTFOUND
 
 //Value Computed by CMake
 benchmark_IS_TOP_LEVEL:STATIC=OFF
@@ -370,6 +422,8 @@ CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=/usr/bin/cpack
+//ADVANCED property for variable: CMAKE_CTEST_COMMAND
+CMAKE_CTEST_COMMAND-ADVANCED:INTERNAL=1
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/bin/ctest
 //ADVANCED property for variable: CMAKE_CXX_COMPILER
@@ -525,10 +579,22 @@ COMPILE_HAVE_PTHREAD_AFFINITY:INTERNAL=TRUE
 COMPILE_HAVE_STD_REGEX:INTERNAL=TRUE
 //Result of TRY_COMPILE
 COMPILE_HAVE_STEADY_CLOCK:INTERNAL=TRUE
+//ADVANCED property for variable: COVERAGE_COMMAND
+COVERAGE_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
+COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
+CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
+CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DART_TESTING_TIMEOUT
+DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //Details about finding Git
 FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[/usr/bin/git][v2.53.0()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //Test HAVE_CXX_FLAG_COVERAGE
@@ -574,6 +640,12 @@ HAVE_POSIX_REGEX:INTERNAL=1
 HAVE_PTHREAD_AFFINITY:INTERNAL=1
 HAVE_STD_REGEX:INTERNAL=1
 HAVE_STEADY_CLOCK:INTERNAL=1
+//ADVANCED property for variable: MAKECOMMAND
+MAKECOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_COMMAND
+MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
+MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
 //Result of try_run()
 RUN_HAVE_POSIX_REGEX:INTERNAL=0
 //Result of try_run()
@@ -582,6 +654,8 @@ RUN_HAVE_PTHREAD_AFFINITY:INTERNAL=0
 RUN_HAVE_STD_REGEX:INTERNAL=0
 //Result of try_run()
 RUN_HAVE_STEADY_CLOCK:INTERNAL=0
+//ADVANCED property for variable: SITE
+SITE-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
 

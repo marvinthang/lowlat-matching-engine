@@ -310,7 +310,6 @@ test_spsc_cached
  /usr/lib/x86_64-linux-gnu/libc.so
  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
  /usr/lib/x86_64-linux-gnu/libm.so
- /usr/lib/x86_64-linux-gnu/librt.a
  /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o
  /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o
  /usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a
@@ -321,5 +320,4 @@ test_spsc_cached
  /usr/lib/x86_64-linux-gnu/libm.so.6
  /usr/lib/x86_64-linux-gnu/libmvec.so.1
  /home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o
- /home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src/libbenchmark.a
 

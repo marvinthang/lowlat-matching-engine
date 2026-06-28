@@ -301,7 +301,6 @@ test_fixed_clob: /lib64/ld-linux-x86-64.so.2 \
   /usr/lib/x86_64-linux-gnu/libc.so \
   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 \
   /usr/lib/x86_64-linux-gnu/libm.so \
-  /usr/lib/x86_64-linux-gnu/librt.a \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a \
@@ -311,8 +310,7 @@ test_fixed_clob: /lib64/ld-linux-x86-64.so.2 \
   /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
   /usr/lib/x86_64-linux-gnu/libm.so.6 \
   /usr/lib/x86_64-linux-gnu/libmvec.so.1 \
-  CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o \
-  benchmark_build/src/libbenchmark.a
+  CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o
 
 
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
@@ -320,8 +318,6 @@ test_fixed_clob: /lib64/ld-linux-x86-64.so.2 \
 /usr/lib/x86_64-linux-gnu/libc.so.6:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a:
-
-/usr/lib/x86_64-linux-gnu/librt.a:
 
 /usr/lib/x86_64-linux-gnu/libc.so:
 
@@ -472,8 +468,6 @@ test_fixed_clob: /lib64/ld-linux-x86-64.so.2 \
 /usr/include/c++/15/bits/shared_ptr.h:
 
 /usr/include/c++/15/bits/stringfwd.h:
-
-benchmark_build/src/libbenchmark.a:
 
 /usr/include/c++/15/bits/refwrap.h:
 

@@ -96,7 +96,6 @@ test_fixed_clob_EXTERNAL_OBJECTS =
 test_fixed_clob: CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o
 test_fixed_clob: CMakeFiles/test_fixed_clob.dir/build.make
 test_fixed_clob: CMakeFiles/test_fixed_clob.dir/compiler_depend.ts
-test_fixed_clob: benchmark_build/src/libbenchmark.a
 test_fixed_clob: CMakeFiles/test_fixed_clob.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_fixed_clob"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_fixed_clob.dir/link.txt --verbose=$(VERBOSE)

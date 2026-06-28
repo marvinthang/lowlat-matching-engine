@@ -119,3 +119,21 @@ very near hits.
 | index queue | Strong queue-only improvement, mixed full-pipeline result due to extra command-array indirection. Not the main path. |
 | `push_many` | Neutral here: 28.8M/s, basically tied with batch-pop-only at 29.3M/s. |
 | thread pinning | No reliable win on this WSL/laptop setup; kept as an experiment only. |
+
+## 8. Pipeline latency vs queue capacity
+
+`profile_pipeline_latency` with `200000` commands and `100000` expected executions.
+
+| Queue capacity | Elapsed | Queue p50 | Queue p99 | Service p50 | Service p99 | End-to-end p99 |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 64 | 27.86 ms | 6.77 us | 32.5 us | 25 ns | 113 ns | 32.7 us |
+| 256 | 27.39 ms | 27.4 us | 65.8 us | 25 ns | 66 ns | 65.9 us |
+| 1024 | 26.10 ms | 119 us | 222 us | 24 ns | 67 ns | 222 us |
+| 4096 | 23.47 ms | 494 us | 591 us | 26 ns | 67 ns | 591 us |
+| 65536 | 16.88 ms | 4.49 ms | 6.32 ms | 24 ns | 46 ns | 6.32 ms |
+| 1048576 | 16.78 ms | 1.72 ms | 2.84 ms | 23 ns | 55 ns | 2.84 ms |
+
+Smaller queues apply backpressure earlier and reduce queueing latency, while larger
+queues absorb bursts and improve total throughput at the cost of much larger waiting
+time. Consumer service time is tens of nanoseconds, so end-to-end latency is dominated
+by queue wait in this saturated workload.

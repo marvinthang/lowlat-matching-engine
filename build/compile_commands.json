@@ -1,33 +1,51 @@
 [
 {
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_order_pool.cpp",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_order_pool.cpp",
   "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_order_pool.cpp",
   "output": "CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.o"
 },
 {
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_fixed_clob.cpp",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_fixed_clob.cpp",
   "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_fixed_clob.cpp",
   "output": "CMakeFiles/test_fixed_clob.dir/tests/test_fixed_clob.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_order_index.dir/tests/test_order_index.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_order_index.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_order_index.cpp",
+  "output": "CMakeFiles/test_order_index.dir/tests/test_order_index.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_matching.dir/tests/test_matching.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_matching.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_matching.cpp",
+  "output": "CMakeFiles/test_matching.dir/tests/test_matching.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_ring.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_ring.cpp",
+  "output": "CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_cached.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_cached.cpp",
+  "output": "CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -mavx2 -o CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_simd_scan.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_simd_scan.cpp",
+  "output": "CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.o"
 },
 {
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
   "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -o CMakeFiles/bench_fixed_clob.dir/bench/bench_fixed_clob.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_fixed_clob.cpp",
   "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_fixed_clob.cpp",
   "output": "CMakeFiles/bench_fixed_clob.dir/bench/bench_fixed_clob.cpp.o"
-},
-{
-  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_order_index.dir/tests/test_order_index.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_order_index.cpp",
-  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_order_index.cpp",
-  "output": "CMakeFiles/test_order_index.dir/tests/test_order_index.cpp.o"
-},
-{
-  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_matching.dir/tests/test_matching.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_matching.cpp",
-  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_matching.cpp",
-  "output": "CMakeFiles/test_matching.dir/tests/test_matching.cpp.o"
 },
 {
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
@@ -49,6 +67,18 @@
 },
 {
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_pipeline.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_pipeline.cpp",
+  "output": "CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
+  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -mavx2 -UNDEBUG -o CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_simd_scan.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_simd_scan.cpp",
+  "output": "CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.o"
+},
+{
+  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
   "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -o CMakeFiles/profile_full_match.dir/tools/profile_full_match.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tools/profile_full_match.cpp",
   "file": "/home/marvinthang/projects/lowlat-matching-engine/tools/profile_full_match.cpp",
   "output": "CMakeFiles/profile_full_match.dir/tools/profile_full_match.cpp.o"
@@ -67,33 +97,9 @@
 },
 {
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_ring.cpp",
-  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_ring.cpp",
-  "output": "CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o"
-},
-{
-  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_pipeline.cpp",
-  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_pipeline.cpp",
-  "output": "CMakeFiles/bench_pipeline.dir/bench/bench_pipeline.cpp.o"
-},
-{
-  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_cached.cpp",
-  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_spsc_cached.cpp",
-  "output": "CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o"
-},
-{
-  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -mavx2 -UNDEBUG -o CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tests/test_simd_scan.cpp",
-  "file": "/home/marvinthang/projects/lowlat-matching-engine/tests/test_simd_scan.cpp",
-  "output": "CMakeFiles/test_simd_scan.dir/tests/test_simd_scan.cpp.o"
-},
-{
-  "directory": "/home/marvinthang/projects/lowlat-matching-engine/build",
-  "command": "/usr/bin/c++ -DBENCHMARK_STATIC_DEFINE -I/home/marvinthang/projects/lowlat-matching-engine/src -I/home/marvinthang/projects/benchmark/include -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -mavx2 -UNDEBUG -o CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/bench/bench_simd_scan.cpp",
-  "file": "/home/marvinthang/projects/lowlat-matching-engine/bench/bench_simd_scan.cpp",
-  "output": "CMakeFiles/bench_simd_scan.dir/bench/bench_simd_scan.cpp.o"
+  "command": "/usr/bin/c++  -I/home/marvinthang/projects/lowlat-matching-engine/src -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -o CMakeFiles/profile_pipeline_latency.dir/tools/profile_pipeline_latency.cpp.o -c /home/marvinthang/projects/lowlat-matching-engine/tools/profile_pipeline_latency.cpp",
+  "file": "/home/marvinthang/projects/lowlat-matching-engine/tools/profile_pipeline_latency.cpp",
+  "output": "CMakeFiles/profile_pipeline_latency.dir/tools/profile_pipeline_latency.cpp.o"
 },
 {
   "directory": "/home/marvinthang/projects/lowlat-matching-engine/build/benchmark_build/src",

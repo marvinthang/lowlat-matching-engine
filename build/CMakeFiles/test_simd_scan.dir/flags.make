@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/marvinthang/projects/lowlat-matching-engine/src
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -mavx2 -UNDEBUG
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -UNDEBUG -mavx2
 

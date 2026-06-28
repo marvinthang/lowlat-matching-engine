@@ -96,7 +96,6 @@ test_spsc_ring_EXTERNAL_OBJECTS =
 test_spsc_ring: CMakeFiles/test_spsc_ring.dir/tests/test_spsc_ring.cpp.o
 test_spsc_ring: CMakeFiles/test_spsc_ring.dir/build.make
 test_spsc_ring: CMakeFiles/test_spsc_ring.dir/compiler_depend.ts
-test_spsc_ring: benchmark_build/src/libbenchmark.a
 test_spsc_ring: CMakeFiles/test_spsc_ring.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_spsc_ring"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_spsc_ring.dir/link.txt --verbose=$(VERBOSE)

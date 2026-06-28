@@ -96,7 +96,6 @@ test_matching_EXTERNAL_OBJECTS =
 test_matching: CMakeFiles/test_matching.dir/tests/test_matching.cpp.o
 test_matching: CMakeFiles/test_matching.dir/build.make
 test_matching: CMakeFiles/test_matching.dir/compiler_depend.ts
-test_matching: benchmark_build/src/libbenchmark.a
 test_matching: CMakeFiles/test_matching.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_matching"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_matching.dir/link.txt --verbose=$(VERBOSE)

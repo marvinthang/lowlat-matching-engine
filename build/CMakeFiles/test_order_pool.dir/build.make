@@ -96,7 +96,6 @@ test_order_pool_EXTERNAL_OBJECTS =
 test_order_pool: CMakeFiles/test_order_pool.dir/tests/test_order_pool.cpp.o
 test_order_pool: CMakeFiles/test_order_pool.dir/build.make
 test_order_pool: CMakeFiles/test_order_pool.dir/compiler_depend.ts
-test_order_pool: benchmark_build/src/libbenchmark.a
 test_order_pool: CMakeFiles/test_order_pool.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/marvinthang/projects/lowlat-matching-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_order_pool"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_order_pool.dir/link.txt --verbose=$(VERBOSE)

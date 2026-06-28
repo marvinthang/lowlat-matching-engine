@@ -3,8 +3,6 @@ test_spsc_cached: \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
   CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o \
-  benchmark_build/src/libbenchmark.a \
-  /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/librt.a \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
@@ -41,10 +39,6 @@ test_spsc_cached: \
 /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
 
 CMakeFiles/test_spsc_cached.dir/tests/test_spsc_cached.cpp.o:
-
-benchmark_build/src/libbenchmark.a:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/librt.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
 
