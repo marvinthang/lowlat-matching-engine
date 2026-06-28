@@ -1,14 +1,22 @@
 # Build output
-build/
-cmake-build-*/
+/build/
+/build-*/
+/cmake-build-*/
+/out/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
 
 # Editor/language-server caches
-.cache/
-**/.cache/clangd/
-.agents/
-.codex/
-.vscode/
-.idea/
+/.cache/
+**/.cache/
+/.agents/
+/.codex/
+/.vscode/
+/.idea/
 
 # OS/editor noise
 .DS_Store
