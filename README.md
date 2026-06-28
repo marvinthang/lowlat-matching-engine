@@ -244,9 +244,10 @@ BENCHMARKS.md
 
 ## Run Profiling Tools
 
-The `tools/profile_*` programs are one-shot profiling harnesses, not canonical
-benchmark reporters. Use them when inspecting a specific path under tools such as
-`perf`, `callgrind`, or simple wall-clock timing.
+The profiling programs under `tools/matching/` and `tools/pipeline/` are one-shot
+profiling harnesses, not canonical benchmark reporters. Use them when inspecting
+a specific path under tools such as `perf`, `callgrind`, or simple wall-clock
+timing.
 
 ```bash
 ./build/profile_full_match

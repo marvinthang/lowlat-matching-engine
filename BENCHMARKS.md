@@ -9,11 +9,12 @@ reported. Tables below prefer median results from repeated runs when available.
 Some rows are still directional notes from local exploratory runs.
 
 Google Benchmark targets are the canonical source for reported throughput numbers.
-The `tools/profile_*` programs are one-shot profiler harnesses for inspecting
-specific hot paths under tools such as `perf` or `callgrind`; their raw wall-clock
-output should not be reported as benchmark results unless clearly labeled as an
-exploratory profile run. `profile_pipeline_latency` is included here because it
-reports latency percentiles that the benchmark suite does not otherwise capture.
+The profiling programs under `tools/matching/` and `tools/pipeline/` are one-shot
+profiler harnesses for inspecting specific hot paths under tools such as `perf`
+or `callgrind`; their raw wall-clock output should not be reported as benchmark
+results unless clearly labeled as an exploratory profile run.
+`profile_pipeline_latency` is included here because it reports latency
+percentiles that the benchmark suite does not otherwise capture.
 
 ## Current main optimized path
 
