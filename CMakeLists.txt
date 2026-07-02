@@ -69,6 +69,8 @@ if(LOWLAT_BUILD_TESTS)
     lowlat_add_test(test_order_index tests/matching/test_order_index.cpp)
     lowlat_add_test(test_matching tests/matching/test_matching.cpp)
     lowlat_add_test(test_local_order_book tests/trading/test_local_order_book.cpp)
+    lowlat_add_test(test_simple_strategy tests/test_simple_strategy.cpp)
+    lowlat_add_test(test_risk_check tests/test_risk_check.cpp)
     lowlat_add_test(test_spsc_ring tests/infra/test_spsc_ring.cpp)
     lowlat_add_test(test_spsc_cached tests/infra/test_spsc_cached.cpp)
 
