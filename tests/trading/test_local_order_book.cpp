@@ -4,7 +4,7 @@
 #include <iostream>
 
 MarketEvent event(Side side, Price price, Quantity qty) {
-    return MarketEvent{price, qty, side, 0};
+    return MarketEvent{side, price, qty, 0};
 }
 
 void test_empty_book() {
